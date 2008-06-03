@@ -13,7 +13,7 @@ namespace MvcApplication3.Controllers
         public void newqst() 
         {
             RenderView("newqst");
-            RedirectToAction("newqst", "Qst");
+            //RedirectToAction("newqst", "Qst");//多了这句
         }
     }
 }
