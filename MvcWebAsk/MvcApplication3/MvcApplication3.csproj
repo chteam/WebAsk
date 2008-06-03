@@ -91,6 +91,11 @@
     <Content Include="App_Data\menglei2008_log.ldf">
       <DependentUpon>menglei2008.mdf</DependentUpon>
     </Content>
+    <Content Include="bin\MvcApplication3.dll" />
+    <Content Include="bin\MvcApplication3.pdb" />
+    <Content Include="bin\System.Web.Abstractions.dll" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Routing.dll" />
     <Content Include="css\eknow.css" />
     <Content Include="css\reg.css" />
     <Content Include="img\bk.gif" />
