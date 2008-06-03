@@ -1,0 +1,42 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title></title>
+	<link href="/css/eknow.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+	<div>
+	   <div class="logo"><img src="/img/logo-zhidao1.gif" border="0" /></div>
+        <div class="headsearch">    
+     	  <form method="post" name="ftop" action="#">
+			<input name="content" type="text" id="content" value=" " size="47"/>
+     	    <span><a href="#" target="_blank">帮助</a></span>
+     	    <input type="submit" name="Submit" value="搜索问题" />
+     	    <input type="submit" name="Submit" value="搜索答案" />
+     	    <span><input name="button" type="button" onclick="<%=Url.Action("newqst","Qst") %>;"
+					 value="我要提问" /></span>
+          </form>
+          </div>
+          <div class="headlink">
+            <a href="/home/index">首页</a>
+            <a href="/user/reg">注册</a>
+            <a href="/user/login" >登录</a>
+            <a href="" >密码保护</a>
+            <a href="" >取回密码</a>
+        </div>
+	</div>
+    <div>
+        <asp:ContentPlaceHolder ID="ContentBody" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+	<div id="footer">
+		Written by <a href="http://yz.eice.com.cn/yz" target="_blank">yz.eice.com.cn/yz</a>&nbsp;成幻工作室 ICP备案序号：<a href="http://www.miibeian.gov.cn/" target="_blank">黑ICP备05001964号</a>
+	</div>
+</body>
+</html>
