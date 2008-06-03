@@ -18,7 +18,7 @@
      	    <span><a href="#" target="_blank">帮助</a></span>
      	    <input type="submit" name="Submit" value="搜索问题" />
      	    <input type="submit" name="Submit" value="搜索答案" />
-     	    <span><input name="button" type="button" onclick="document.location=<%=Url.Action("newqst","Qst") %>;"
+     	    <span><input name="button" type="button" onclick="document.location='<%=Url.Action("newqst","Qst") %>';"
 					 value="我要提问" /></span>
           </form>
           </div>
