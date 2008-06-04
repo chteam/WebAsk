@@ -2,6 +2,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentBody" runat="server">
+<%if (Session["username"] == null)
+  {%>
+  <div>请先登陆</div>
+<%} %>
+<%else
+	{%>
 	<div class="listtop">
 		<a href="../yz/index.asp">成幻易知</a> &gt; 提问
 	</div>
@@ -96,4 +102,5 @@
 			</form>
 		</div>
 	</div>
+	<%} %>
 </asp:Content>
