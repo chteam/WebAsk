@@ -92,6 +92,7 @@
       <DependentUpon>menglei2008.mdf</DependentUpon>
     </Content>
     <Content Include="css\eknow.css" />
+    <Content Include="css\newqst.css" />
     <Content Include="css\reg.css" />
     <Content Include="img\bk.gif" />
     <Content Include="img\btn_zdcq.gif" />

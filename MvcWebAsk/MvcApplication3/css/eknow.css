@@ -43,7 +43,6 @@ li{margin:2px 0; list-style:none;}
 .listleft{ margin:0 190px 0 10px;}
 .listleft h5{ text-align:left; margin-bottom:10px;border-bottom:1px solid #d8dfea;}
 .listleft th{ font-size:13px; color:#3b5999; margin:10px;}
-.listleft table{width: 790px;}
 .ltname,.ltanser,.ltact,.lttime{border-top:1px dashed #E1E1E1; padding-top:5px; font-size:14px;}
 .ltname .point{ color:Red;}
 
@@ -61,8 +60,6 @@ li{margin:2px 0; list-style:none;}
 .martop{ margin-top:20px;}
 .mar10X0{ margin:10px 0;}
 .sendh5{ margin:1px; font-size:13px;}
-#cDiv label{ margin :10px;}
-#cDiv textarea{ margin-left:85px; width:350px;}
 #replyTB{ background:#f7f7f7; padding:10px;}
 
 

@@ -14,5 +14,9 @@ namespace MvcApplication3.Controllers
         {
             RenderView("newqst");
         }
+        public void newquestion()
+        { 
+        
+        }
     }
 }
