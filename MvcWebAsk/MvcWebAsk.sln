@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcApplication3", "MvcApplication3\MvcApplication3.csproj", "{D6C86710-88B8-410D-87E6-BBEA44CC54FF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAsk", "MvcApplication3\WebAsk.csproj", "{D6C86710-88B8-410D-87E6-BBEA44CC54FF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DllLibrary", "DllLibrary\DllLibrary.csproj", "{F7E04BE5-6B10-4433-8BF6-4FB6CD274E71}"
 EndProject
