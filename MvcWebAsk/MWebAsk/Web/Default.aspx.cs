@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Web.UI;
 
-namespace Web
+namespace MWebAsk
 {
     public partial class _Default : Page
     {

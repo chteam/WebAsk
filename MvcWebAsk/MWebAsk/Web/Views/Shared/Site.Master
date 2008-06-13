@@ -1,43 +1,64 @@
-ï»¿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Web.Views.Shared.Site" %>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="MWebAsk.Views.Shared.Site" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-    <title><%= Html.Encode(ViewData["Title"]) %></title>
-    <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
+<head id="Head1" runat="server">
+	<title></title>
+	<link href="/css/eknow.css" rel="stylesheet" type="text/css" />
+	<asp:ContentPlaceHolder ID="head" runat="server">
+	</asp:ContentPlaceHolder>
 </head>
-
 <body>
-    <div class="page">
-
-        <div id="header">
-            <p id="logo">
-                <a href="">My Sample MVC Application</a>
-            </p>
-            <ul id="menu">
-                <li>
-                    <%= Html.ActionLink("Home", "Index", "Home")%>
-                </li>
-                <li>
-                    <%= Html.ActionLink("About Us", "About", "Home")%>
-                </li>
-            </ul>
-        </div>
-
-        <div id="main">
-            <div id="content">
-            
-                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
-            
-            </div>
-            <div id="footer">
-                <p>
-                    My Sample MVC Application &copy; Copyright 2008
-                </p>
-            </div>
-        </div>
-
-    </div>
+	<div>
+		<div class="logo">
+			<img src="/img/logo-zhidao1.gif" border="0" /></div>
+		<div class="headsearch">
+			<form method="post" name="ftop" action="#">
+			<input name="content" type="text" id="content" value=" " size="47" />
+			<span><a href="#" target="_blank">°ïÖú</a></span>
+			<input type="submit" name="Submit" value="ËÑË÷ÎÊÌâ" />
+			<input type="submit" name="Submit" value="ËÑË÷´ð°¸" />
+			<span>
+				<input name="button" type="button" onclick="document.location='<%=Url.Action("newqst","Qst") %>';"
+					value="ÎÒÒªÌáÎÊ" /></span>
+			</form>
+		</div>
+		<div class="headlink">
+			<a href="/home/index">Ê×Ò³</a>
+			<%
+				if (Session["UserID"] == null)
+				{ 
+			%>
+			<%=Html.ActionLink("×¢²á", "reg", "Account")%>
+			<%=Html.ActionLink("µÇÂ¼", "loginpage", "account")%>
+			<%
+				}
+				else
+				{
+			%>
+			<%=Html.ActionLink("×¢Ïú","logout","account") %>
+			<%
+				}
+			%>
+			<a href="">ÃÜÂë±£»¤</a> <a href="">È¡»ØÃÜÂë</a>
+			
+		</div>
+	</div>
+	<div>
+		<%
+			if (TempData.ContainsKey("msg"))
+			{
+		%>
+		<div>
+			<%=TempData["msg"] %>
+		</div>
+		<%} %>
+		<asp:ContentPlaceHolder ID="ContentBody" runat="server">
+		</asp:ContentPlaceHolder>
+	</div>
+	<div id="footer">
+		Written by <a href="http://yz.eice.com.cn/yz" target="_blank">yz.eice.com.cn/yz</a>&nbsp;³É»Ã¹¤×÷ÊÒ
+		ICP±¸°¸ÐòºÅ£º<a href="http://www.miibeian.gov.cn/" target="_blank">ºÚICP±¸05001964ºÅ</a>
+	</div>
 </body>
 </html>

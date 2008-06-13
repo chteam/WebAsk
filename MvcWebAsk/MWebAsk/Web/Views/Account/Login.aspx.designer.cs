@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MWebAsk.Views.Home {
+namespace MWebAsk.Views.Account {
     
     
-    public partial class About {
+    public partial class Login {
     }
 }

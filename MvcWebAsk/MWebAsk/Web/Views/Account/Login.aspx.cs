@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MWebAsk.Views.Shared
+namespace MWebAsk.Views.Account
 {
-    public partial class Site : System.Web.Mvc.ViewMasterPage
+    public partial class Login : ViewPage
     {
     }
 }

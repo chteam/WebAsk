@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
-namespace MWebAsk.Views.Shared
+using MWebAsk.Models;
+namespace MWebAsk.Views.Account
 {
-    public partial class Site : System.Web.Mvc.ViewMasterPage
+    public partial class Regsuccess : ViewPage<MWebAsk.Models.Account>
     {
     }
 }
