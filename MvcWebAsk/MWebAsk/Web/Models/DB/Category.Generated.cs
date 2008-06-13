@@ -115,13 +115,13 @@ namespace MWebAsk.Models
             }
         }
         
-        private long _parentID;
+        private Nullable<long> _parentID;
 
         /// <summary>
         /// Gets or sets the ParentID column value.
         /// </summary>
-        [Column(Name="ParentID", Storage="_parentID", DbType="bigint NOT NULL", CanBeNull=false)]
-        public long ParentID
+        [Column(Name="ParentID", Storage="_parentID", DbType="bigint")]
+        public Nullable<long> ParentID
         {
             get { return _parentID; }
             set
@@ -295,7 +295,7 @@ namespace MWebAsk.Models
         partial void OnUserIDChanged();
         /// <summary>Called when ParentID is changing.</summary>
         /// <param name="value">The new value.</param>
-        partial void OnParentIDChanging(long value);
+        partial void OnParentIDChanging(Nullable<long> value);
         /// <summary>Called after ParentID has Changed.</summary>
         partial void OnParentIDChanged();
         #endregion
