@@ -39,9 +39,7 @@
 			<%=Html.ActionLink("注销","logout","account") %>
 			<%
 				}
-			%>
-			<a href="">密码保护</a> <a href="">取回密码</a>
-			
+			%>	
 		</div>
 	</div>
 	<div>
