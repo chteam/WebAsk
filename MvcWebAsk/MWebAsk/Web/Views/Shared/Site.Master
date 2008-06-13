@@ -5,15 +5,17 @@
 <head id="Head1" runat="server">
 	<title></title>
 	<link href="/css/eknow.css" rel="stylesheet" type="text/css" />
+	<%= Html.Validation().ValidatorRegistrationScripts() /*验证控件的前提*/%>
 	<asp:ContentPlaceHolder ID="head" runat="server">
 	</asp:ContentPlaceHolder>
+	
 </head>
 <body>
 	<div>
 		<div class="logo">
 			<img src="/img/logo-zhidao1.gif" border="0" /></div>
 		<div class="headsearch">
-			<form method="post" name="ftop" action="#">
+			<% using (Html.Form("Account", "Login", FormMethod.Post, Html.Validation().FormValidation("login"))){ %>
 			<input name="content" type="text" id="content" value=" " size="47" />
 			<span><a href="#" target="_blank">帮助</a></span>
 			<input type="submit" name="Submit" value="搜索问题" />
@@ -21,7 +23,7 @@
 			<span>
 				<input name="button" type="button" onclick="document.location='<%=Url.Action("newqst","Qst") %>';"
 					value="我要提问" /></span>
-			</form>
+			<%} %>
 		</div>
 		<div class="headlink">
 			<a href="/home/index">首页</a>
@@ -42,7 +44,8 @@
 			%>	
 		</div>
 	</div>
-	<div>
+	
+	<div id="Container">
 		<%
 			if (TempData.ContainsKey("msg"))
 			{
@@ -51,12 +54,15 @@
 			<%=TempData["msg"] %>
 		</div>
 		<%} %>
+
 		<asp:ContentPlaceHolder ID="ContentBody" runat="server">
 		</asp:ContentPlaceHolder>
+
 	</div>
 	<div id="footer">
 		Written by <a href="http://yz.eice.com.cn/yz" target="_blank">yz.eice.com.cn/yz</a>&nbsp;成幻工作室
 		ICP备案序号：<a href="http://www.miibeian.gov.cn/" target="_blank">黑ICP备05001964号</a>
 	</div>
+		<%= Html.Validation().ValidatorInitializationScripts() /*验证控件的收尾*/%>
 </body>
 </html>

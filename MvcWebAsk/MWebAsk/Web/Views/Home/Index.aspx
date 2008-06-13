@@ -1,8 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="MWebAsk.Views.Home.Index" %>
 
 <asp:Content ID="indexContent" ContentPlaceHolderID="ContentBody" runat="server">
-	<center>
-		<div id="Container">
+
 			<div id="leftContent">
 				<div class="box">
 					<h5>
@@ -71,115 +70,7 @@
 					</div>
 				</div>
 			</div>
-			<div id="rightContent">
-				<div class="box">
-					<h5>
-						用户登录</h5>
-					<div class="boxtext">
-						<div id="pinfo">
-							<%if (Session["UserID"] == null)
-								{%>
-							<form name="lg" method="post" action="<%=Url.Action("Login","Account") %>">
-							<ul>
-								<li>
-									<label>
-										E-Mail :</label>
-									<input name="name" type="text" id="name" size="18" /></li>
-								<li>
-									<label>
-										密 码 :</label>
-									<input name="Password" type="password" id="Password" size="18" /></li>
-							</ul>
-							<div id="loginsub">
-								<input name="sub" type="image" src="/img/login.gif" id="sub" value="登录"/>
-								<input name="login" type="hidden" value="登录" />
-								<a href="/account/reg">
-									<img src="/img/reg.gif" alt="注册" border="0" /></a>
-							</div>
-							</form>
-							<%} %>
-							<%else
-									{%>
-							<div>
-								<ul>
-									<li>您好：<% =Session["UserID"]%></li>
-									<li><a href="../help/help.asp#n5" target="_blank">助理 二级</a> ( 161 )</li>
-								</ul>
-							</div>
-							<div>
-								<ul>
-									<li><a href="../user/user.asp?lei=mywen" target="_blank">我的提问</a></li>
-									<li><a href="../user/user.asp" target="_blank">个人中心</a></li>
-									<li><a href="../user/user.asp?lei=myda" target="_blank">我的回答</a></li>
-									<li><a href="<%=Url.Action("Logout","account") %>">退出</a></li>
-								</ul>
-							</div>
-							<%} %>
-						</div>
-					</div>
-				</div>
-				<!--结束登录框-->
-				<div class="box">
-					<h5>
-						成幻易知之星</h5>
-					<div class="boxtext">
-						<ul>
-							<li><a href="../user/showuser.asp?id=144" target="_blank">cbw</a></li>
-							<li><span class="spanfont">经理 四级(1956)</span></li>
-							<li><span class="spanfont">专精领域：</span> <a href="../list/chsubcls1.asp?id=37">系统工具</a></li>
-							<li><span class="spanfont">精选回答：</span></li>
-							<li><a href="../html/qanda/292.html" target="_blank">lllllllllll</a> </li>
-							<a href="../html/qanda/291.html" target="_blank">mmmmmmmmmmmmmmmmm</a> </li>
-						</ul>
-					</div>
-				</div>
-				<div class="box">
-					<h5>
-						昨日用户上升TOP5</h5>
-					<div class="boxtext">
-						<ul>
-							暂时没有排名!
-						</ul>
-					</div>
-				</div>
-				<div class="box">
-					<h5>
-						本周用户上升TOP5</h5>
-					<div class="boxtext">
-						<ul>
-							暂时没有排名!
-						</ul>
-					</div>
-				</div>
-				<div class="box">
-					<h5>
-						总积分排行榜</h5>
-					<div class="boxtext">
-						<ul>
-							<li>1. <a href="../user/showuser.asp?id=144" target="_blank">cbw</a>1956</li>
-							<li>2. <a href="../user/showuser.asp?id=106" target="_blank">中街小痞子</a>377</li>
-							<li>3. <a href="../user/showuser.asp?id=57" target="_blank">孟磊</a>374</li>
-							<li>4. <a href="../user/showuser.asp?id=60" target="_blank">1234567</a>290</li>
-							<li>5. <a href="../user/showuser.asp?id=53" target="_blank">admin</a>162</li>
-							<li><a href="../user/listuser.asp?lei=jifen" class="lmore">更多&gt;&gt;</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="box">
-					<h5>
-						最新注册用户</h5>
-					<div class="boxtext">
-						<ul>
-							<li><a href="../user/showuser.asp?id=166" target="_blank">gjl</a> 22</li>
-							<li><a href="../user/showuser.asp?id=165" target="_blank">zzl</a> 32</li>
-							<li><a href="../user/showuser.asp?id=164" target="_blank">wangshi</a> 20</li>
-							<li><a href="../user/showuser.asp?id=163" target="_blank">jl584661</a> 20</li>
-							<li><a href="../user/showuser.asp?id=162" target="_blank">clhcxx</a> 20</li>
-							<li><a href="../user/listuser.asp?lei=new" class="lmore">更多&gt;&gt;</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
+			
 			<div id="midContent">
 				<div class="box">
 					<h5>
@@ -258,5 +149,5 @@
 					</div>
 				</div>
 			</div>
-	</center>
+	
 </asp:Content>

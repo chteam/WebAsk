@@ -3,7 +3,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 	<link href="/css/reg.css" rel="stylesheet" type="text/css" />
-	<%= Html.Validation().ValidatorRegistrationScripts() /*验证控件的前提*/%>
+	
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentBody" runat="server">
 <% using (
@@ -33,6 +33,6 @@
 	</div>
 	<%} %>
 	
-	<%= Html.Validation().ValidatorInitializationScripts() /*验证控件的收尾*/%>
+
 
 </asp:Content>

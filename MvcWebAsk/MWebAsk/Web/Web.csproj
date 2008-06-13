@@ -148,6 +148,13 @@
     <Compile Include="Views\Shared\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
+    <Compile Include="Views\Shared\ViewMaster.Master.cs">
+      <DependentUpon>ViewMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Shared\ViewMaster.Master.designer.cs">
+      <DependentUpon>ViewMaster.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Css\eknow.css" />
@@ -212,6 +219,7 @@
     <None Include="Models\DB.dbml.layout">
       <DependentUpon>DB.dbml</DependentUpon>
     </None>
+    <Content Include="Views\Shared\ViewMaster.Master" />
     <Content Include="Views\Admin\CategoryList.aspx" />
     <Content Include="Views\Shared\AdminMaster.Master" />
   </ItemGroup>

@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" AutoEventWireup="true" CodeBehind="Reg.aspx.cs" Inherits="MWebAsk.Views.Account.Reg" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 	<link href="/css/reg.css" rel="stylesheet" type="text/css" />
-	<%= Html.Validation().ValidatorRegistrationScripts() %>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentBody" runat="server">
 <% using (
@@ -46,5 +45,4 @@
 	<input id="reset" class="bnsrh" type="reset" value="重新填写" name="reset" />
 </div>
 <%} %>
-	<%= Html.Validation().ValidatorInitializationScripts() %>
 </asp:Content>
