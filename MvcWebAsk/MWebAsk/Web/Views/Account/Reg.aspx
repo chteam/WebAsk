@@ -15,6 +15,9 @@
 			* <span>请输入有效的邮件地址</span>
 				<%= Html.Validation().RequiredValidator("r4Email", "Email",
                                             "请输入您的Email", "reg")%>
+               <%= Html.Validation().RegularExpressionValidator(
+                "re4Email", "Email", @"[a-zA-Z0-9]([a-zA-Z0-9]*[-_.]?[a-zA-Z0-9]+)+@([\w-]+\.)+[a-zA-Z]{2,}",
+               				"邮箱格式不正确", "reg")%>
 			</li>
 			
 		<li>
