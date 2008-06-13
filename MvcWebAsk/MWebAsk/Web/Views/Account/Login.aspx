@@ -10,11 +10,11 @@
 		<li>
 			<label>
 				E-mail：</label><%=Html.TextBox("Email") %>
-			<span>提示区域</span></li>
+			<span>请输入您的用户名即EMAIL</span></li>
 		<li>
 			<label>
 				密 码：</label><%=Html.Password("Password") %>
-			<span>提示区域</span></li>
+			<span>请输入你的登陆密码</span></li>
 	</ul>
 </div>
 <div class="regsub">
