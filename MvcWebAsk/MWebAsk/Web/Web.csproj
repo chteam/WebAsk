@@ -122,6 +122,13 @@
     <Compile Include="Views\Home\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Shared\AdminMaster.Master.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Shared\AdminMaster.Master.designer.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
+    </Compile>
     <Compile Include="Views\Shared\Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -193,6 +200,7 @@
     <None Include="Models\DB.dbml.layout">
       <DependentUpon>DB.dbml</DependentUpon>
     </None>
+    <Content Include="Views\Shared\AdminMaster.Master" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
