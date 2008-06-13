@@ -14,6 +14,12 @@ namespace MWebAsk
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+              "Category",                                              // Route name
+              "{controller}/{action}/{id}",                           // URL with parameters
+              new { controller = "Home", action = "Index", id = 0 }  // Parameter defaults
+          );
+
+            routes.MapRoute(
                 "Default",                                              // Route name
                 "{controller}/{action}/{id}",                           // URL with parameters
                 new { controller = "Home", action = "Index", id = "" }  // Parameter defaults
