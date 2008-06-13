@@ -19,7 +19,7 @@
       <Column Name="ID" Member="ID" Storage="_iD" Type="System.Int64" DbType="bigint NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Title" Member="Title" Storage="_title" Type="System.String" DbType="nvarchar(50) NOT NULL" CanBeNull="false" />
       <Column Name="UserID" Member="UserID" Storage="_userID" Type="System.Int64" DbType="bigint NOT NULL" CanBeNull="false" />
-      <Column Name="ParentID" Member="ParentID" Storage="_parentID" Type="System.Int64" DbType="bigint NOT NULL" CanBeNull="false" />
+      <Column Name="ParentID" Member="ParentID" Storage="_parentID" Type="System.Int64" DbType="bigint" CanBeNull="true" />
       <Association Name="FK_Category_Account" Member="UserAccount" Storage="_userAccount" ThisKey="UserID" OtherKey="ID" Type="Account" IsForeignKey="true" />
       <Association Name="FK_Category_Category" Member="ParentCategory" Storage="_parentCategory" ThisKey="ParentID" OtherKey="ID" Type="Category" IsForeignKey="true" />
       <Association Name="FK_Category_Category" Member="ParentCategoryList" Storage="_parentCategoryList" ThisKey="ID" OtherKey="ParentID" Type="Category" />
