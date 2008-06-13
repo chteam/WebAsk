@@ -4,6 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{F8B9F860-9B90-4CE5-BF8F-F98E29D0C375}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{9A8FCA44-CE1D-430B-BC99-881E8A78F19D}"
+	ProjectSection(SolutionItems) = preProject
+		E:\Program Files\Microsoft ASP.NET\ASP.NET MVC Preview 3\Assemblies\System.Web.Abstractions.dll = E:\Program Files\Microsoft ASP.NET\ASP.NET MVC Preview 3\Assemblies\System.Web.Abstractions.dll
+		E:\Program Files\Microsoft ASP.NET\ASP.NET MVC Preview 3\Assemblies\System.Web.Mvc.dll = E:\Program Files\Microsoft ASP.NET\ASP.NET MVC Preview 3\Assemblies\System.Web.Mvc.dll
+		E:\Program Files\Microsoft ASP.NET\ASP.NET MVC Preview 3\Assemblies\System.Web.Routing.dll = E:\Program Files\Microsoft ASP.NET\ASP.NET MVC Preview 3\Assemblies\System.Web.Routing.dll
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
