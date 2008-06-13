@@ -8,7 +8,7 @@ using MWebAsk.Models;
 
 namespace MWebAsk.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : DBController
     {
         #region 注册
         public ActionResult Reg()
@@ -19,10 +19,7 @@ namespace MWebAsk.Controllers
         {
             Account user = new Account();
             BindingHelperExtensions.UpdateFrom(user, Request.Form);
-            
-            DBDataContext db = new DBDataContext();
-
-            var islogin = (from u in db.Account
+            var islogin = (from u in DB.Account
                            where u.Email == user.Email
                            select u).SingleOrDefault();
 
@@ -34,8 +31,8 @@ namespace MWebAsk.Controllers
             else
             {
                 user.Password = user.Password.Md5_32();
-                db.Account.InsertOnSubmit(user);
-                db.SubmitChanges();
+                DB.Account.InsertOnSubmit(user);
+                DB.SubmitChanges();
                 return View("Regsuccess",user);
             }
 
@@ -49,10 +46,9 @@ namespace MWebAsk.Controllers
             if (Request.Form.Count == 0) return View();
             Account user = new Account();
             BindingHelperExtensions.UpdateFrom(user, Request.Form);
-            
-            DBDataContext db = new DBDataContext();
+           
 
-            var islogin = (from u in db.Account
+            var islogin = (from u in DB.Account
                            where u.Email == user.Email
                            && u.Password == user.Password.Md5_32()
                            select u).SingleOrDefault();
