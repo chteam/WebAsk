@@ -30,9 +30,6 @@ namespace MWebAsk.Models
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertCategory(Category instance);
-    partial void UpdateCategory(Category instance);
-    partial void DeleteCategory(Category instance);
     partial void InsertPublish(Publish instance);
     partial void UpdatePublish(Publish instance);
     partial void DeletePublish(Publish instance);
@@ -45,6 +42,9 @@ namespace MWebAsk.Models
     partial void InsertAccount(Account instance);
     partial void UpdateAccount(Account instance);
     partial void DeleteAccount(Account instance);
+    partial void InsertCategory(Category instance);
+    partial void UpdateCategory(Category instance);
+    partial void DeleteCategory(Category instance);
     #endregion
 		
 		public DBDataContext() : 
@@ -75,14 +75,6 @@ namespace MWebAsk.Models
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		public System.Data.Linq.Table<Category> Category
-		{
-			get
-			{
-				return this.GetTable<Category>();
-			}
 		}
 		
 		public System.Data.Linq.Table<Publish> Publish
@@ -116,208 +108,13 @@ namespace MWebAsk.Models
 				return this.GetTable<Account>();
 			}
 		}
-	}
-	
-	[Table(Name="dbo.Category")]
-	public partial class Category : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _ID;
-		
-		private string _Title;
-		
-		private long _UserID;
-		
-		private long _ParentID;
-		
-		private EntitySet<Question> _Question;
-		
-		private EntityRef<Account> _Account;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(long value);
-    partial void OnIDChanged();
-    partial void OnTitleChanging(string value);
-    partial void OnTitleChanged();
-    partial void OnUserIDChanging(long value);
-    partial void OnUserIDChanged();
-    partial void OnParentIDChanging(long value);
-    partial void OnParentIDChanged();
-    #endregion
-		
-		public Category()
-		{
-			this._Question = new EntitySet<Question>(new Action<Question>(this.attach_Question), new Action<Question>(this.detach_Question));
-			this._Account = default(EntityRef<Account>);
-			OnCreated();
-		}
-		
-		[Column(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public long ID
+		public System.Data.Linq.Table<Category> Category
 		{
 			get
 			{
-				return this._ID;
+				return this.GetTable<Category>();
 			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Title", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Title
-		{
-			get
-			{
-				return this._Title;
-			}
-			set
-			{
-				if ((this._Title != value))
-				{
-					this.OnTitleChanging(value);
-					this.SendPropertyChanging();
-					this._Title = value;
-					this.SendPropertyChanged("Title");
-					this.OnTitleChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_UserID", DbType="BigInt NOT NULL")]
-		public long UserID
-		{
-			get
-			{
-				return this._UserID;
-			}
-			set
-			{
-				if ((this._UserID != value))
-				{
-					if (this._Account.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnUserIDChanging(value);
-					this.SendPropertyChanging();
-					this._UserID = value;
-					this.SendPropertyChanged("UserID");
-					this.OnUserIDChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_ParentID", DbType="BigInt NOT NULL")]
-		public long ParentID
-		{
-			get
-			{
-				return this._ParentID;
-			}
-			set
-			{
-				if ((this._ParentID != value))
-				{
-					this.OnParentIDChanging(value);
-					this.SendPropertyChanging();
-					this._ParentID = value;
-					this.SendPropertyChanged("ParentID");
-					this.OnParentIDChanged();
-				}
-			}
-		}
-		
-		[Association(Name="Category_Question", Storage="_Question", OtherKey="CategoryID")]
-		public EntitySet<Question> Question
-		{
-			get
-			{
-				return this._Question;
-			}
-			set
-			{
-				this._Question.Assign(value);
-			}
-		}
-		
-		[Association(Name="Account_Category", Storage="_Account", ThisKey="UserID", IsForeignKey=true)]
-		public Account Account
-		{
-			get
-			{
-				return this._Account.Entity;
-			}
-			set
-			{
-				Account previousValue = this._Account.Entity;
-				if (((previousValue != value) 
-							|| (this._Account.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Account.Entity = null;
-						previousValue.Category.Remove(this);
-					}
-					this._Account.Entity = value;
-					if ((value != null))
-					{
-						value.Category.Add(this);
-						this._UserID = value.ID;
-					}
-					else
-					{
-						this._UserID = default(long);
-					}
-					this.SendPropertyChanged("Account");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Question(Question entity)
-		{
-			this.SendPropertyChanging();
-			entity.Category = this;
-		}
-		
-		private void detach_Question(Question entity)
-		{
-			this.SendPropertyChanging();
-			entity.Category = null;
 		}
 	}
 	
@@ -542,9 +339,9 @@ namespace MWebAsk.Models
 		
 		private EntitySet<Reply> _Reply;
 		
-		private EntityRef<Category> _Category;
-		
 		private EntityRef<Account> _Account;
+		
+		private EntityRef<Category> _Category;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -569,8 +366,8 @@ namespace MWebAsk.Models
 		public Question()
 		{
 			this._Reply = new EntitySet<Reply>(new Action<Reply>(this.attach_Reply), new Action<Reply>(this.detach_Reply));
-			this._Category = default(EntityRef<Category>);
 			this._Account = default(EntityRef<Account>);
+			this._Category = default(EntityRef<Category>);
 			OnCreated();
 		}
 		
@@ -735,40 +532,6 @@ namespace MWebAsk.Models
 			}
 		}
 		
-		[Association(Name="Category_Question", Storage="_Category", ThisKey="CategoryID", IsForeignKey=true)]
-		public Category Category
-		{
-			get
-			{
-				return this._Category.Entity;
-			}
-			set
-			{
-				Category previousValue = this._Category.Entity;
-				if (((previousValue != value) 
-							|| (this._Category.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Category.Entity = null;
-						previousValue.Question.Remove(this);
-					}
-					this._Category.Entity = value;
-					if ((value != null))
-					{
-						value.Question.Add(this);
-						this._CategoryID = value.ID;
-					}
-					else
-					{
-						this._CategoryID = default(long);
-					}
-					this.SendPropertyChanged("Category");
-				}
-			}
-		}
-		
 		[Association(Name="Account_Question", Storage="_Account", ThisKey="UserID", IsForeignKey=true)]
 		public Account Account
 		{
@@ -799,6 +562,40 @@ namespace MWebAsk.Models
 						this._UserID = default(long);
 					}
 					this.SendPropertyChanged("Account");
+				}
+			}
+		}
+		
+		[Association(Name="Category_Question", Storage="_Category", ThisKey="CategoryID", IsForeignKey=true)]
+		public Category Category
+		{
+			get
+			{
+				return this._Category.Entity;
+			}
+			set
+			{
+				Category previousValue = this._Category.Entity;
+				if (((previousValue != value) 
+							|| (this._Category.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Category.Entity = null;
+						previousValue.Question.Remove(this);
+					}
+					this._Category.Entity = value;
+					if ((value != null))
+					{
+						value.Question.Add(this);
+						this._CategoryID = value.ID;
+					}
+					else
+					{
+						this._CategoryID = default(long);
+					}
+					this.SendPropertyChanged("Category");
 				}
 			}
 		}
@@ -1164,13 +961,13 @@ namespace MWebAsk.Models
 		
 		private int _Point;
 		
-		private EntitySet<Category> _Category;
-		
 		private EntitySet<Publish> _Publish;
 		
 		private EntitySet<Question> _Question;
 		
 		private EntitySet<Reply> _Reply;
+		
+		private EntitySet<Category> _Category;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1190,10 +987,10 @@ namespace MWebAsk.Models
 		
 		public Account()
 		{
-			this._Category = new EntitySet<Category>(new Action<Category>(this.attach_Category), new Action<Category>(this.detach_Category));
 			this._Publish = new EntitySet<Publish>(new Action<Publish>(this.attach_Publish), new Action<Publish>(this.detach_Publish));
 			this._Question = new EntitySet<Question>(new Action<Question>(this.attach_Question), new Action<Question>(this.detach_Question));
 			this._Reply = new EntitySet<Reply>(new Action<Reply>(this.attach_Reply), new Action<Reply>(this.detach_Reply));
+			this._Category = new EntitySet<Category>(new Action<Category>(this.attach_Category), new Action<Category>(this.detach_Category));
 			OnCreated();
 		}
 		
@@ -1297,19 +1094,6 @@ namespace MWebAsk.Models
 			}
 		}
 		
-		[Association(Name="Account_Category", Storage="_Category", OtherKey="UserID")]
-		public EntitySet<Category> Category
-		{
-			get
-			{
-				return this._Category;
-			}
-			set
-			{
-				this._Category.Assign(value);
-			}
-		}
-		
 		[Association(Name="Account_Publish", Storage="_Publish", OtherKey="UserID")]
 		public EntitySet<Publish> Publish
 		{
@@ -1349,6 +1133,19 @@ namespace MWebAsk.Models
 			}
 		}
 		
+		[Association(Name="Account_Category", Storage="_Category", OtherKey="UserID")]
+		public EntitySet<Category> Category
+		{
+			get
+			{
+				return this._Category;
+			}
+			set
+			{
+				this._Category.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1367,18 +1164,6 @@ namespace MWebAsk.Models
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_Category(Category entity)
-		{
-			this.SendPropertyChanging();
-			entity.Account = this;
-		}
-		
-		private void detach_Category(Category entity)
-		{
-			this.SendPropertyChanging();
-			entity.Account = null;
 		}
 		
 		private void attach_Publish(Publish entity)
@@ -1415,6 +1200,290 @@ namespace MWebAsk.Models
 		{
 			this.SendPropertyChanging();
 			entity.Account = null;
+		}
+		
+		private void attach_Category(Category entity)
+		{
+			this.SendPropertyChanging();
+			entity.Account = this;
+		}
+		
+		private void detach_Category(Category entity)
+		{
+			this.SendPropertyChanging();
+			entity.Account = null;
+		}
+	}
+	
+	[Table(Name="dbo.Category")]
+	public partial class Category : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _ID;
+		
+		private string _Title;
+		
+		private long _UserID;
+		
+		private long _ParentID;
+		
+		private EntitySet<Question> _Question;
+		
+		private EntitySet<Category> _Category2;
+		
+		private EntityRef<Account> _Account;
+		
+		private EntityRef<Category> _Category1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(long value);
+    partial void OnIDChanged();
+    partial void OnTitleChanging(string value);
+    partial void OnTitleChanged();
+    partial void OnUserIDChanging(long value);
+    partial void OnUserIDChanged();
+    partial void OnParentIDChanging(long value);
+    partial void OnParentIDChanged();
+    #endregion
+		
+		public Category()
+		{
+			this._Question = new EntitySet<Question>(new Action<Question>(this.attach_Question), new Action<Question>(this.detach_Question));
+			this._Category2 = new EntitySet<Category>(new Action<Category>(this.attach_Category2), new Action<Category>(this.detach_Category2));
+			this._Account = default(EntityRef<Account>);
+			this._Category1 = default(EntityRef<Category>);
+			OnCreated();
+		}
+		
+		[Column(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Title", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this.OnTitleChanging(value);
+					this.SendPropertyChanging();
+					this._Title = value;
+					this.SendPropertyChanged("Title");
+					this.OnTitleChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_UserID", DbType="BigInt NOT NULL")]
+		public long UserID
+		{
+			get
+			{
+				return this._UserID;
+			}
+			set
+			{
+				if ((this._UserID != value))
+				{
+					if (this._Account.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUserIDChanging(value);
+					this.SendPropertyChanging();
+					this._UserID = value;
+					this.SendPropertyChanged("UserID");
+					this.OnUserIDChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_ParentID", DbType="BigInt NOT NULL")]
+		public long ParentID
+		{
+			get
+			{
+				return this._ParentID;
+			}
+			set
+			{
+				if ((this._ParentID != value))
+				{
+					if (this._Category1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnParentIDChanging(value);
+					this.SendPropertyChanging();
+					this._ParentID = value;
+					this.SendPropertyChanged("ParentID");
+					this.OnParentIDChanged();
+				}
+			}
+		}
+		
+		[Association(Name="Category_Question", Storage="_Question", OtherKey="CategoryID")]
+		public EntitySet<Question> Question
+		{
+			get
+			{
+				return this._Question;
+			}
+			set
+			{
+				this._Question.Assign(value);
+			}
+		}
+		
+		[Association(Name="Category_Category", Storage="_Category2", OtherKey="ParentID")]
+		public EntitySet<Category> Category2
+		{
+			get
+			{
+				return this._Category2;
+			}
+			set
+			{
+				this._Category2.Assign(value);
+			}
+		}
+		
+		[Association(Name="Account_Category", Storage="_Account", ThisKey="UserID", IsForeignKey=true)]
+		public Account Account
+		{
+			get
+			{
+				return this._Account.Entity;
+			}
+			set
+			{
+				Account previousValue = this._Account.Entity;
+				if (((previousValue != value) 
+							|| (this._Account.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Account.Entity = null;
+						previousValue.Category.Remove(this);
+					}
+					this._Account.Entity = value;
+					if ((value != null))
+					{
+						value.Category.Add(this);
+						this._UserID = value.ID;
+					}
+					else
+					{
+						this._UserID = default(long);
+					}
+					this.SendPropertyChanged("Account");
+				}
+			}
+		}
+		
+		[Association(Name="Category_Category", Storage="_Category1", ThisKey="ParentID", IsForeignKey=true)]
+		public Category Category1
+		{
+			get
+			{
+				return this._Category1.Entity;
+			}
+			set
+			{
+				Category previousValue = this._Category1.Entity;
+				if (((previousValue != value) 
+							|| (this._Category1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Category1.Entity = null;
+						previousValue.Category2.Remove(this);
+					}
+					this._Category1.Entity = value;
+					if ((value != null))
+					{
+						value.Category2.Add(this);
+						this._ParentID = value.ID;
+					}
+					else
+					{
+						this._ParentID = default(long);
+					}
+					this.SendPropertyChanged("Category1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Question(Question entity)
+		{
+			this.SendPropertyChanging();
+			entity.Category = this;
+		}
+		
+		private void detach_Question(Question entity)
+		{
+			this.SendPropertyChanging();
+			entity.Category = null;
+		}
+		
+		private void attach_Category2(Category entity)
+		{
+			this.SendPropertyChanging();
+			entity.Category1 = this;
+		}
+		
+		private void detach_Category2(Category entity)
+		{
+			this.SendPropertyChanging();
+			entity.Category1 = null;
 		}
 	}
 }
