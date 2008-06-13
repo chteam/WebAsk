@@ -5,6 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
     <title></title>
+    	<%= Html.Validation().ValidatorRegistrationScripts() /*验证控件的前提*/%>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -17,5 +19,7 @@
         
         </asp:ContentPlaceHolder>
     </div>
+    <%= Html.Validation().ValidatorInitializationScripts() /*验证控件的收尾*/%>
+
 </body>
 </html>
