@@ -10,6 +10,7 @@ namespace MWebAsk.Controllers
     {
         public ActionResult Index()
         {
+
             return View();
         }
     }
