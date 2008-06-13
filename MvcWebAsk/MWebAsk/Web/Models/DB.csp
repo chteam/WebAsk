@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<codeSmith xmlns="http://www.codesmithtools.com/schema/csp.xsd">
+  <propertySets>
+    <propertySet template="E:\Documents and Settings\Administrator\My Documents\CodeSmith\Samples\v4.1\Templates\plinqo-v1.3.3239\Dbml.cst">
+      <property name="IncludeViews">False</property>
+      <property name="IncludeFunctions">True</property>
+      <property name="IgnoreList">
+        <stringList>
+          <string>^sysdiagrams$</string>
+        </stringList>
+      </property>
+      <property name="CleanExpression">
+        <stringList>
+          <string>^\\w+_</string>
+        </stringList>
+      </property>
+      <property name="EntityBase">MWebAskEntity</property>
+      <property name="DisableRenaming">False</property>
+      <property name="DbmlFile">C:\WebAsk\MWebAsk\Web\Models\DB.dbml</property>
+      <property name="SourceDatabase">
+        <connectionString>Data Source=.;Initial Catalog=WebAsk;Integrated Security=True</connectionString>
+        <providerType>SchemaExplorer.SqlSchemaProvider,SchemaExplorer.SqlSchemaProvider</providerType>
+      </property>
+      <property name="EntityNamespace">MWebAsk.Models</property>
+      <property name="ContextNamespace">MWebAsk.Models</property>
+    </propertySet>
+    <propertySet template="E:\Documents and Settings\Administrator\My Documents\CodeSmith\Samples\v4.1\Templates\plinqo-v1.3.3239\Entities.cst">
+      <property name="DbmlFile">C:\WebAsk\MWebAsk\Web\Models\DB.dbml</property>
+      <property name="ProjectFile">C:\WebAsk\MWebAsk\Web\Web.csproj</property>
+      <property name="OutputDirectory">C:\WebAsk\MWebAsk\Web\Models\DB</property>
+    </propertySet>
+  </propertySets>
+</codeSmith>

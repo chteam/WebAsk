@@ -27,7 +27,7 @@ namespace MWebAsk.Controllers
                         where c.ParentID == 0
                         select c
                             ).ToList();
-            
+            ViewData["list"] = cate;
             return View();
         }
     }

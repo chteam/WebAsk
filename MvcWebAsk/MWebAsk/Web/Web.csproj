@@ -216,6 +216,7 @@
     <None Include="Img\_notes\icn_cancel.gif.mno" />
     <None Include="Img\_notes\icn_gq.gif.mno" />
     <None Include="Img\_notes\icon_honor.gif.mno" />
+    <None Include="Models\DB.csp" />
     <None Include="Models\DB.dbml.layout">
       <DependentUpon>DB.dbml</DependentUpon>
     </None>

@@ -3,19 +3,19 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <%
-	Html.Grid<Person>(
-		"people", 
-		new Hash(empty => "There are no people", style => "width: 100%"),
+	Html.Grid<Category>(
+		"list", 
+		new Hash(empty => "There are no data", style => "width: 100%"),
 		column => {
-			column.For(p => p.Id, "ID Number");
-			column.For(p => p.Name);
-			column.For(p => p.Gender);
-			column.For(p => p.RoleId).Formatted("Role ID: {0}");
+			column.For(p => p.ID);
+			column.For(p => p.Title);
+			column.For(p => p);
 			column.For("Custom Column").Do(p => { %>
 				<td>A custom column...</td>	
 			<% });
 		}
 	);
 %>
+
 
 </asp:Content>
