@@ -26,12 +26,15 @@
 						<li>
 							<label>
 								E-Mail :</label>
-							<input name="Email" type="text" id="name" size="18" />
+							<%=Html.TextBox("Email") %>
+					<%=Html.Validation().RequiredValidator("r4Email", "Email","请输入一个用户名.", "login")%>
 						</li>
 						<li>
 							<label>
 								密 码 :</label>
-							<input name="Password" type="password" id="Password" size="18" />
+							<%=Html.Password("Password") %>
+					<%= Html.Validation().RequiredValidator("r4Password", "Password","请输入一个用户名.", "login")%>
+
 						</li>
 					</ul>
 					<div id="loginsub">
@@ -49,7 +52,7 @@
 					<div>
 						<ul>
 							<li>您好：<%=Session["UserID"]%></li>
-							<li><a href="../help/help.asp#n5" target="_blank">助理 二级</a> ( <%=Session["Point"] %> )</li>
+							<li><a href="../help/help.asp#n5" target="_blank"><%=UserLevelTools.UserLevelString(Session["Point"])%></a> ( <%=Session["Point"] %> )</li>
 						</ul>
 					</div>
 					<div>
