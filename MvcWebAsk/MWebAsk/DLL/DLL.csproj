@@ -45,6 +45,7 @@
   </Target>
   -->
   <ItemGroup>
+    <Content Include="MvcContrib.dll" />
     <Content Include="System.Web.Abstractions.dll" />
     <Content Include="System.Web.Mvc.dll" />
     <Content Include="System.Web.Routing.dll" />
