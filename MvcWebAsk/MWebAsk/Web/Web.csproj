@@ -86,11 +86,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DB.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DB.dbml</DependentUpon>
-    </Compile>
+    <Compile Include="Models\DB\.cs" />
+    <Compile Include="Models\DB\Account.cs" />
+    <Compile Include="Models\DB\Account.Generated.cs" />
+    <Compile Include="Models\DB\Category.cs" />
+    <Compile Include="Models\DB\Category.Generated.cs" />
+    <Compile Include="Models\DB\DBDataContext.cs" />
+    <Compile Include="Models\DB\DBDataContext.Generated.cs" />
+    <Compile Include="Models\DB\MWebAskEntity.cs" />
+    <Compile Include="Models\DB\Publish.cs" />
+    <Compile Include="Models\DB\Publish.Generated.cs" />
+    <Compile Include="Models\DB\Question.cs" />
+    <Compile Include="Models\DB\Question.Generated.cs" />
+    <Compile Include="Models\DB\Reply.cs" />
+    <Compile Include="Models\DB\Reply.Generated.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\UserLevel.cs" />
     <Compile Include="Views\Account\Login.aspx.cs">
@@ -200,14 +209,6 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Models\DB.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>DB.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-      <CustomToolNamespace>MWebAsk.Models</CustomToolNamespace>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
@@ -216,10 +217,6 @@
     <None Include="Img\_notes\icn_cancel.gif.mno" />
     <None Include="Img\_notes\icn_gq.gif.mno" />
     <None Include="Img\_notes\icon_honor.gif.mno" />
-    <None Include="Models\DB.csp" />
-    <None Include="Models\DB.dbml.layout">
-      <DependentUpon>DB.dbml</DependentUpon>
-    </None>
     <Content Include="Views\Shared\ViewMaster.Master" />
     <Content Include="Views\Admin\CategoryList.aspx" />
     <Content Include="Views\Shared\AdminMaster.Master" />

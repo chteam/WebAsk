@@ -1,67 +1,67 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Database Name="WebAsk" Class="DBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+﻿<?xml version="1.0" encoding="utf-16"?>
+<Database Name="WebAsk" EntityNamespace="MWebAsk.Models" ContextNamespace="MWebAsk.Models" Class="DBDataContext" EntityBase="MWebAskEntity" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=.;Initial Catalog=WebAsk;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="WebAskConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Publish" Member="Publish">
-    <Type Name="Publish">
-      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Title" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Body" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="Addtime" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
-      <Column Name="UserID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Association Name="Account_Publish" Member="Account" ThisKey="UserID" Type="Account" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Question" Member="Question">
-    <Type Name="Question">
-      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Title" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Body" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="Addtime" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
-      <Column Name="Edittime" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
-      <Column Name="UserID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="CategoryID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Association Name="Question_Reply" Member="Reply" OtherKey="QuestionID" Type="Reply" />
-      <Association Name="Account_Question" Member="Account" ThisKey="UserID" Type="Account" IsForeignKey="true" />
-      <Association Name="Category_Question" Member="Category" ThisKey="CategoryID" Type="Category" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Reply" Member="Reply">
-    <Type Name="Reply">
-      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Body" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="Addtime" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
-      <Column Name="EditTime" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
-      <Column Name="QuestionID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="Type" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="UserID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="Situation" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
-      <Association Name="Question_Reply" Member="Question" ThisKey="QuestionID" Type="Question" IsForeignKey="true" />
-      <Association Name="Account_Reply" Member="Account" ThisKey="UserID" Type="Account" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Account" Member="Account">
     <Type Name="Account">
-      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Password" Type="System.String" DbType="VarChar(32) NOT NULL" CanBeNull="false" />
-      <Column Name="StatusLevel" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
-      <Column Name="Point" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Account_Publish" Member="Publish" OtherKey="UserID" Type="Publish" />
-      <Association Name="Account_Question" Member="Question" OtherKey="UserID" Type="Question" />
-      <Association Name="Account_Reply" Member="Reply" OtherKey="UserID" Type="Reply" />
-      <Association Name="Account_Category" Member="Category" OtherKey="UserID" Type="Category" />
+      <Column Name="ID" Member="ID" Storage="_iD" Type="System.Int64" DbType="bigint NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Email" Member="Email" Storage="_email" Type="System.String" DbType="nvarchar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Member="Password" Storage="_password" Type="System.String" DbType="varchar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="StatusLevel" Member="StatusLevel" Storage="_statusLevel" Type="System.Byte" DbType="tinyint NOT NULL" CanBeNull="false" />
+      <Column Name="Point" Member="Point" Storage="_point" Type="System.Int32" DbType="int NOT NULL" CanBeNull="false" />
+      <Association Name="FK_Category_Account" Member="UserCategoryList" Storage="_userCategoryList" ThisKey="ID" OtherKey="UserID" Type="Category" />
+      <Association Name="FK_Publish_Account" Member="UserPublishList" Storage="_userPublishList" ThisKey="ID" OtherKey="UserID" Type="Publish" />
+      <Association Name="FK_Question_Account" Member="UserQuestionList" Storage="_userQuestionList" ThisKey="ID" OtherKey="UserID" Type="Question" />
+      <Association Name="FK_Reply_Account" Member="UserReplyList" Storage="_userReplyList" ThisKey="ID" OtherKey="UserID" Type="Reply" />
     </Type>
   </Table>
   <Table Name="dbo.Category" Member="Category">
     <Type Name="Category">
-      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Title" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="UserID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="ParentID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Association Name="Category_Question" Member="Question" OtherKey="CategoryID" Type="Question" />
-      <Association Name="Category_Category" Member="Category2" OtherKey="ParentID" Type="Category" />
-      <Association Name="Account_Category" Member="Account" ThisKey="UserID" Type="Account" IsForeignKey="true" />
-      <Association Name="Category_Category" Member="Category1" ThisKey="ParentID" Type="Category" IsForeignKey="true" />
+      <Column Name="ID" Member="ID" Storage="_iD" Type="System.Int64" DbType="bigint NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Member="Title" Storage="_title" Type="System.String" DbType="nvarchar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UserID" Member="UserID" Storage="_userID" Type="System.Int64" DbType="bigint NOT NULL" CanBeNull="false" />
+      <Column Name="ParentID" Member="ParentID" Storage="_parentID" Type="System.Int64" DbType="bigint NOT NULL" CanBeNull="false" />
+      <Association Name="FK_Category_Account" Member="UserAccount" Storage="_userAccount" ThisKey="UserID" OtherKey="ID" Type="Account" IsForeignKey="true" />
+      <Association Name="FK_Category_Category" Member="ParentCategory" Storage="_parentCategory" ThisKey="ParentID" OtherKey="ID" Type="Category" IsForeignKey="true" />
+      <Association Name="FK_Category_Category" Member="ParentCategoryList" Storage="_parentCategoryList" ThisKey="ID" OtherKey="ParentID" Type="Category" />
+      <Association Name="FK_Question_Category" Member="QuestionList" Storage="_questionList" ThisKey="ID" OtherKey="CategoryID" Type="Question" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Publish" Member="Publish">
+    <Type Name="Publish">
+      <Column Name="ID" Member="ID" Storage="_iD" Type="System.Int64" DbType="bigint NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Member="Title" Storage="_title" Type="System.String" DbType="nvarchar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Body" Member="Body" Storage="_body" Type="System.String" DbType="ntext NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Addtime" Member="Addtime" Storage="_addtime" Type="System.DateTime" DbType="smalldatetime NOT NULL" CanBeNull="false" />
+      <Column Name="UserID" Member="UserID" Storage="_userID" Type="System.Int64" DbType="bigint NOT NULL" CanBeNull="false" />
+      <Association Name="FK_Publish_Account" Member="UserAccount" Storage="_userAccount" ThisKey="UserID" OtherKey="ID" Type="Account" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Question" Member="Question">
+    <Type Name="Question">
+      <Column Name="ID" Member="ID" Storage="_iD" Type="System.Int64" DbType="bigint NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Member="Title" Storage="_title" Type="System.String" DbType="nvarchar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Body" Member="Body" Storage="_body" Type="System.String" DbType="ntext NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Addtime" Member="Addtime" Storage="_addtime" Type="System.DateTime" DbType="smalldatetime NOT NULL" CanBeNull="false" />
+      <Column Name="Edittime" Member="Edittime" Storage="_edittime" Type="System.DateTime" DbType="smalldatetime NOT NULL" CanBeNull="false" />
+      <Column Name="UserID" Member="UserID" Storage="_userID" Type="System.Int64" DbType="bigint NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryID" Member="CategoryID" Storage="_categoryID" Type="System.Int64" DbType="bigint NOT NULL" CanBeNull="false" />
+      <Association Name="FK_Question_Account" Member="UserAccount" Storage="_userAccount" ThisKey="UserID" OtherKey="ID" Type="Account" IsForeignKey="true" />
+      <Association Name="FK_Question_Category" Member="Category" Storage="_category" ThisKey="CategoryID" OtherKey="ID" Type="Category" IsForeignKey="true" />
+      <Association Name="FK_Reply_Question" Member="ReplyList" Storage="_replyList" ThisKey="ID" OtherKey="QuestionID" Type="Reply" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Reply" Member="Reply">
+    <Type Name="Reply">
+      <Column Name="ID" Member="ID" Storage="_iD" Type="System.Int64" DbType="bigint NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Body" Member="Body" Storage="_body" Type="System.String" DbType="ntext NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Addtime" Member="Addtime" Storage="_addtime" Type="System.DateTime" DbType="smalldatetime NOT NULL" CanBeNull="false" />
+      <Column Name="EditTime" Member="EditTime" Storage="_editTime" Type="System.DateTime" DbType="smalldatetime NOT NULL" CanBeNull="false" />
+      <Column Name="QuestionID" Member="QuestionID" Storage="_questionID" Type="System.Int64" DbType="bigint NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Member="Type" Storage="_type" Type="System.String" DbType="nchar(10)" CanBeNull="true" />
+      <Column Name="UserID" Member="UserID" Storage="_userID" Type="System.Int64" DbType="bigint NOT NULL" CanBeNull="false" />
+      <Column Name="Situation" Member="Situation" Storage="_situation" Type="System.Byte" DbType="tinyint NOT NULL" CanBeNull="false" />
+      <Association Name="FK_Reply_Question" Member="Question" Storage="_question" ThisKey="QuestionID" OtherKey="ID" Type="Question" IsForeignKey="true" />
+      <Association Name="FK_Reply_Account" Member="UserAccount" Storage="_userAccount" ThisKey="UserID" OtherKey="ID" Type="Account" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
