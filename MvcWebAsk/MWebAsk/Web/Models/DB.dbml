@@ -1,18 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Database Name="WebAsk" Class="DBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=.;Initial Catalog=WebAsk;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="WebAskConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Account" Member="Account">
-    <Type Name="Account">
-      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Password" Type="System.String" DbType="VarChar(32) NOT NULL" CanBeNull="false" />
-      <Column Name="StatusLevel" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
-      <Association Name="Account_Category" Member="Category" OtherKey="UserID" Type="Category" />
-      <Association Name="Account_Publish" Member="Publish" OtherKey="UserID" Type="Publish" />
-      <Association Name="Account_Question" Member="Question" OtherKey="UserID" Type="Question" />
-      <Association Name="Account_Reply" Member="Reply" OtherKey="UserID" Type="Reply" />
-    </Type>
-  </Table>
   <Table Name="dbo.Category" Member="Category">
     <Type Name="Category">
       <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -43,8 +31,8 @@
       <Column Name="UserID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="CategoryID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Association Name="Question_Reply" Member="Reply" OtherKey="QuestionID" Type="Reply" />
-      <Association Name="Account_Question" Member="Account" ThisKey="UserID" Type="Account" IsForeignKey="true" />
       <Association Name="Category_Question" Member="Category" ThisKey="CategoryID" Type="Category" IsForeignKey="true" />
+      <Association Name="Account_Question" Member="Account" ThisKey="UserID" Type="Account" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Reply" Member="Reply">
@@ -57,8 +45,21 @@
       <Column Name="Type" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
       <Column Name="UserID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="Situation" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
-      <Association Name="Account_Reply" Member="Account" ThisKey="UserID" Type="Account" IsForeignKey="true" />
       <Association Name="Question_Reply" Member="Question" ThisKey="QuestionID" Type="Question" IsForeignKey="true" />
+      <Association Name="Account_Reply" Member="Account" ThisKey="UserID" Type="Account" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Account" Member="Account">
+    <Type Name="Account">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="StatusLevel" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="Point" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Account_Category" Member="Category" OtherKey="UserID" Type="Category" />
+      <Association Name="Account_Publish" Member="Publish" OtherKey="UserID" Type="Publish" />
+      <Association Name="Account_Question" Member="Question" OtherKey="UserID" Type="Question" />
+      <Association Name="Account_Reply" Member="Reply" OtherKey="UserID" Type="Reply" />
     </Type>
   </Table>
 </Database>

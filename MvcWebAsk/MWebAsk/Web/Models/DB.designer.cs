@@ -30,9 +30,6 @@ namespace MWebAsk.Models
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertAccount(Account instance);
-    partial void UpdateAccount(Account instance);
-    partial void DeleteAccount(Account instance);
     partial void InsertCategory(Category instance);
     partial void UpdateCategory(Category instance);
     partial void DeleteCategory(Category instance);
@@ -45,6 +42,9 @@ namespace MWebAsk.Models
     partial void InsertReply(Reply instance);
     partial void UpdateReply(Reply instance);
     partial void DeleteReply(Reply instance);
+    partial void InsertAccount(Account instance);
+    partial void UpdateAccount(Account instance);
+    partial void DeleteAccount(Account instance);
     #endregion
 		
 		public DBDataContext() : 
@@ -75,14 +75,6 @@ namespace MWebAsk.Models
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		public System.Data.Linq.Table<Account> Account
-		{
-			get
-			{
-				return this.GetTable<Account>();
-			}
 		}
 		
 		public System.Data.Linq.Table<Category> Category
@@ -116,251 +108,13 @@ namespace MWebAsk.Models
 				return this.GetTable<Reply>();
 			}
 		}
-	}
-	
-	[Table(Name="dbo.Account")]
-	public partial class Account : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _ID;
-		
-		private string _Email;
-		
-		private string _Password;
-		
-		private byte _StatusLevel;
-		
-		private EntitySet<Category> _Category;
-		
-		private EntitySet<Publish> _Publish;
-		
-		private EntitySet<Question> _Question;
-		
-		private EntitySet<Reply> _Reply;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(long value);
-    partial void OnIDChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    partial void OnPasswordChanging(string value);
-    partial void OnPasswordChanged();
-    partial void OnStatusLevelChanging(byte value);
-    partial void OnStatusLevelChanged();
-    #endregion
-		
-		public Account()
-		{
-			this._Category = new EntitySet<Category>(new Action<Category>(this.attach_Category), new Action<Category>(this.detach_Category));
-			this._Publish = new EntitySet<Publish>(new Action<Publish>(this.attach_Publish), new Action<Publish>(this.detach_Publish));
-			this._Question = new EntitySet<Question>(new Action<Question>(this.attach_Question), new Action<Question>(this.detach_Question));
-			this._Reply = new EntitySet<Reply>(new Action<Reply>(this.attach_Reply), new Action<Reply>(this.detach_Reply));
-			OnCreated();
-		}
-		
-		[Column(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public long ID
+		public System.Data.Linq.Table<Account> Account
 		{
 			get
 			{
-				return this._ID;
+				return this.GetTable<Account>();
 			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Email", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this.OnEmailChanging(value);
-					this.SendPropertyChanging();
-					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Password", DbType="VarChar(32) NOT NULL", CanBeNull=false)]
-		public string Password
-		{
-			get
-			{
-				return this._Password;
-			}
-			set
-			{
-				if ((this._Password != value))
-				{
-					this.OnPasswordChanging(value);
-					this.SendPropertyChanging();
-					this._Password = value;
-					this.SendPropertyChanged("Password");
-					this.OnPasswordChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_StatusLevel", DbType="TinyInt NOT NULL")]
-		public byte StatusLevel
-		{
-			get
-			{
-				return this._StatusLevel;
-			}
-			set
-			{
-				if ((this._StatusLevel != value))
-				{
-					this.OnStatusLevelChanging(value);
-					this.SendPropertyChanging();
-					this._StatusLevel = value;
-					this.SendPropertyChanged("StatusLevel");
-					this.OnStatusLevelChanged();
-				}
-			}
-		}
-		
-		[Association(Name="Account_Category", Storage="_Category", OtherKey="UserID")]
-		public EntitySet<Category> Category
-		{
-			get
-			{
-				return this._Category;
-			}
-			set
-			{
-				this._Category.Assign(value);
-			}
-		}
-		
-		[Association(Name="Account_Publish", Storage="_Publish", OtherKey="UserID")]
-		public EntitySet<Publish> Publish
-		{
-			get
-			{
-				return this._Publish;
-			}
-			set
-			{
-				this._Publish.Assign(value);
-			}
-		}
-		
-		[Association(Name="Account_Question", Storage="_Question", OtherKey="UserID")]
-		public EntitySet<Question> Question
-		{
-			get
-			{
-				return this._Question;
-			}
-			set
-			{
-				this._Question.Assign(value);
-			}
-		}
-		
-		[Association(Name="Account_Reply", Storage="_Reply", OtherKey="UserID")]
-		public EntitySet<Reply> Reply
-		{
-			get
-			{
-				return this._Reply;
-			}
-			set
-			{
-				this._Reply.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Category(Category entity)
-		{
-			this.SendPropertyChanging();
-			entity.Account = this;
-		}
-		
-		private void detach_Category(Category entity)
-		{
-			this.SendPropertyChanging();
-			entity.Account = null;
-		}
-		
-		private void attach_Publish(Publish entity)
-		{
-			this.SendPropertyChanging();
-			entity.Account = this;
-		}
-		
-		private void detach_Publish(Publish entity)
-		{
-			this.SendPropertyChanging();
-			entity.Account = null;
-		}
-		
-		private void attach_Question(Question entity)
-		{
-			this.SendPropertyChanging();
-			entity.Account = this;
-		}
-		
-		private void detach_Question(Question entity)
-		{
-			this.SendPropertyChanging();
-			entity.Account = null;
-		}
-		
-		private void attach_Reply(Reply entity)
-		{
-			this.SendPropertyChanging();
-			entity.Account = this;
-		}
-		
-		private void detach_Reply(Reply entity)
-		{
-			this.SendPropertyChanging();
-			entity.Account = null;
 		}
 	}
 	
@@ -788,9 +542,9 @@ namespace MWebAsk.Models
 		
 		private EntitySet<Reply> _Reply;
 		
-		private EntityRef<Account> _Account;
-		
 		private EntityRef<Category> _Category;
+		
+		private EntityRef<Account> _Account;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -815,8 +569,8 @@ namespace MWebAsk.Models
 		public Question()
 		{
 			this._Reply = new EntitySet<Reply>(new Action<Reply>(this.attach_Reply), new Action<Reply>(this.detach_Reply));
-			this._Account = default(EntityRef<Account>);
 			this._Category = default(EntityRef<Category>);
+			this._Account = default(EntityRef<Account>);
 			OnCreated();
 		}
 		
@@ -981,40 +735,6 @@ namespace MWebAsk.Models
 			}
 		}
 		
-		[Association(Name="Account_Question", Storage="_Account", ThisKey="UserID", IsForeignKey=true)]
-		public Account Account
-		{
-			get
-			{
-				return this._Account.Entity;
-			}
-			set
-			{
-				Account previousValue = this._Account.Entity;
-				if (((previousValue != value) 
-							|| (this._Account.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Account.Entity = null;
-						previousValue.Question.Remove(this);
-					}
-					this._Account.Entity = value;
-					if ((value != null))
-					{
-						value.Question.Add(this);
-						this._UserID = value.ID;
-					}
-					else
-					{
-						this._UserID = default(long);
-					}
-					this.SendPropertyChanged("Account");
-				}
-			}
-		}
-		
 		[Association(Name="Category_Question", Storage="_Category", ThisKey="CategoryID", IsForeignKey=true)]
 		public Category Category
 		{
@@ -1045,6 +765,40 @@ namespace MWebAsk.Models
 						this._CategoryID = default(long);
 					}
 					this.SendPropertyChanged("Category");
+				}
+			}
+		}
+		
+		[Association(Name="Account_Question", Storage="_Account", ThisKey="UserID", IsForeignKey=true)]
+		public Account Account
+		{
+			get
+			{
+				return this._Account.Entity;
+			}
+			set
+			{
+				Account previousValue = this._Account.Entity;
+				if (((previousValue != value) 
+							|| (this._Account.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Account.Entity = null;
+						previousValue.Question.Remove(this);
+					}
+					this._Account.Entity = value;
+					if ((value != null))
+					{
+						value.Question.Add(this);
+						this._UserID = value.ID;
+					}
+					else
+					{
+						this._UserID = default(long);
+					}
+					this.SendPropertyChanged("Account");
 				}
 			}
 		}
@@ -1104,9 +858,9 @@ namespace MWebAsk.Models
 		
 		private byte _Situation;
 		
-		private EntityRef<Account> _Account;
-		
 		private EntityRef<Question> _Question;
+		
+		private EntityRef<Account> _Account;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1132,8 +886,8 @@ namespace MWebAsk.Models
 		
 		public Reply()
 		{
-			this._Account = default(EntityRef<Account>);
 			this._Question = default(EntityRef<Question>);
+			this._Account = default(EntityRef<Account>);
 			OnCreated();
 		}
 		
@@ -1305,40 +1059,6 @@ namespace MWebAsk.Models
 			}
 		}
 		
-		[Association(Name="Account_Reply", Storage="_Account", ThisKey="UserID", IsForeignKey=true)]
-		public Account Account
-		{
-			get
-			{
-				return this._Account.Entity;
-			}
-			set
-			{
-				Account previousValue = this._Account.Entity;
-				if (((previousValue != value) 
-							|| (this._Account.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Account.Entity = null;
-						previousValue.Reply.Remove(this);
-					}
-					this._Account.Entity = value;
-					if ((value != null))
-					{
-						value.Reply.Add(this);
-						this._UserID = value.ID;
-					}
-					else
-					{
-						this._UserID = default(long);
-					}
-					this.SendPropertyChanged("Account");
-				}
-			}
-		}
-		
 		[Association(Name="Question_Reply", Storage="_Question", ThisKey="QuestionID", IsForeignKey=true)]
 		public Question Question
 		{
@@ -1373,6 +1093,40 @@ namespace MWebAsk.Models
 			}
 		}
 		
+		[Association(Name="Account_Reply", Storage="_Account", ThisKey="UserID", IsForeignKey=true)]
+		public Account Account
+		{
+			get
+			{
+				return this._Account.Entity;
+			}
+			set
+			{
+				Account previousValue = this._Account.Entity;
+				if (((previousValue != value) 
+							|| (this._Account.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Account.Entity = null;
+						previousValue.Reply.Remove(this);
+					}
+					this._Account.Entity = value;
+					if ((value != null))
+					{
+						value.Reply.Add(this);
+						this._UserID = value.ID;
+					}
+					else
+					{
+						this._UserID = default(long);
+					}
+					this.SendPropertyChanged("Account");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1391,6 +1145,276 @@ namespace MWebAsk.Models
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[Table(Name="dbo.Account")]
+	public partial class Account : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _ID;
+		
+		private string _Email;
+		
+		private string _Password;
+		
+		private byte _StatusLevel;
+		
+		private int _Point;
+		
+		private EntitySet<Category> _Category;
+		
+		private EntitySet<Publish> _Publish;
+		
+		private EntitySet<Question> _Question;
+		
+		private EntitySet<Reply> _Reply;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(long value);
+    partial void OnIDChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
+    partial void OnStatusLevelChanging(byte value);
+    partial void OnStatusLevelChanged();
+    partial void OnPointChanging(int value);
+    partial void OnPointChanged();
+    #endregion
+		
+		public Account()
+		{
+			this._Category = new EntitySet<Category>(new Action<Category>(this.attach_Category), new Action<Category>(this.detach_Category));
+			this._Publish = new EntitySet<Publish>(new Action<Publish>(this.attach_Publish), new Action<Publish>(this.detach_Publish));
+			this._Question = new EntitySet<Question>(new Action<Question>(this.attach_Question), new Action<Question>(this.detach_Question));
+			this._Reply = new EntitySet<Reply>(new Action<Reply>(this.attach_Reply), new Action<Reply>(this.detach_Reply));
+			OnCreated();
+		}
+		
+		[Column(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Email", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Password", DbType="VarChar(32) NOT NULL", CanBeNull=false)]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_StatusLevel", DbType="TinyInt NOT NULL")]
+		public byte StatusLevel
+		{
+			get
+			{
+				return this._StatusLevel;
+			}
+			set
+			{
+				if ((this._StatusLevel != value))
+				{
+					this.OnStatusLevelChanging(value);
+					this.SendPropertyChanging();
+					this._StatusLevel = value;
+					this.SendPropertyChanged("StatusLevel");
+					this.OnStatusLevelChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Point", DbType="Int NOT NULL")]
+		public int Point
+		{
+			get
+			{
+				return this._Point;
+			}
+			set
+			{
+				if ((this._Point != value))
+				{
+					this.OnPointChanging(value);
+					this.SendPropertyChanging();
+					this._Point = value;
+					this.SendPropertyChanged("Point");
+					this.OnPointChanged();
+				}
+			}
+		}
+		
+		[Association(Name="Account_Category", Storage="_Category", OtherKey="UserID")]
+		public EntitySet<Category> Category
+		{
+			get
+			{
+				return this._Category;
+			}
+			set
+			{
+				this._Category.Assign(value);
+			}
+		}
+		
+		[Association(Name="Account_Publish", Storage="_Publish", OtherKey="UserID")]
+		public EntitySet<Publish> Publish
+		{
+			get
+			{
+				return this._Publish;
+			}
+			set
+			{
+				this._Publish.Assign(value);
+			}
+		}
+		
+		[Association(Name="Account_Question", Storage="_Question", OtherKey="UserID")]
+		public EntitySet<Question> Question
+		{
+			get
+			{
+				return this._Question;
+			}
+			set
+			{
+				this._Question.Assign(value);
+			}
+		}
+		
+		[Association(Name="Account_Reply", Storage="_Reply", OtherKey="UserID")]
+		public EntitySet<Reply> Reply
+		{
+			get
+			{
+				return this._Reply;
+			}
+			set
+			{
+				this._Reply.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Category(Category entity)
+		{
+			this.SendPropertyChanging();
+			entity.Account = this;
+		}
+		
+		private void detach_Category(Category entity)
+		{
+			this.SendPropertyChanging();
+			entity.Account = null;
+		}
+		
+		private void attach_Publish(Publish entity)
+		{
+			this.SendPropertyChanging();
+			entity.Account = this;
+		}
+		
+		private void detach_Publish(Publish entity)
+		{
+			this.SendPropertyChanging();
+			entity.Account = null;
+		}
+		
+		private void attach_Question(Question entity)
+		{
+			this.SendPropertyChanging();
+			entity.Account = this;
+		}
+		
+		private void detach_Question(Question entity)
+		{
+			this.SendPropertyChanging();
+			entity.Account = null;
+		}
+		
+		private void attach_Reply(Reply entity)
+		{
+			this.SendPropertyChanging();
+			entity.Account = this;
+		}
+		
+		private void detach_Reply(Reply entity)
+		{
+			this.SendPropertyChanging();
+			entity.Account = null;
 		}
 	}
 }
