@@ -12,6 +12,7 @@
 </head>
 <body>
     <div>
+    <%=Html.ActionLink<AdminController>(c=>c.CategoryList(0,0),"分类管理")%>
     <div>
     
     </div>

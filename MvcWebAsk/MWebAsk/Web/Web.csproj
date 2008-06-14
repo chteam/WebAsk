@@ -85,6 +85,7 @@
     <Compile Include="Extension\Linq\ExpressionVisitor.cs" />
     <Compile Include="Extension\Linq\LinqToSqlExtensions.cs" />
     <Compile Include="Extension\Md5.cs" />
+    <Compile Include="Filter\NoLoginFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -150,6 +151,13 @@
     </Compile>
     <Compile Include="Views\Admin\CategoryList.aspx.designer.cs">
       <DependentUpon>CategoryList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Home\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -241,6 +249,7 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
     </None>
+    <Content Include="Views\Admin\Index.aspx" />
     <Content Include="Views\Shared\ViewMaster.Master" />
     <Content Include="Views\Admin\CategoryList.aspx" />
     <Content Include="Views\Shared\AdminMaster.Master" />

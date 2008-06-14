@@ -34,5 +34,17 @@ namespace MWebAsk
                 return HttpContext.Current.Session["UserID"] != null;
             }
         }
+        public static bool IsAdmin {
+            get {
+                if (UserTools.IsLogin)
+                {
+                    byte sl = 0;
+                    byte.TryParse(HttpContext.Current.Session["StatusLevel"].ToString(), out sl);
+                    return sl > 199;
+                }
+                else
+                    return false;
+            }
+        }
     }
 }

@@ -28,17 +28,22 @@
 		<div class="headlink">
 			<a href="/home/index">Ê×Ò³</a>
 			<%
-				if (Session["UserID"] == null)
+				if (UserTools.IsLogin)
 				{ 
 			%>
-			<%=Html.ActionLink("×¢²á", "reg", "Account")%>
-			<%=Html.ActionLink("µÇÂ¼", "loginpage", "account")%>
-			<%
+			<%=Html.ActionLink("×¢Ïú","logout","account") %>
+			<%if (UserTools.IsAdmin)
+	 {%>
+	 	<%=Html.ActionLink("¹ÜÀíÍøÕ¾","index","Admin") %>
+	 <%
+	 }
 				}
 				else
 				{
 			%>
-			<%=Html.ActionLink("×¢Ïú","logout","account") %>
+			<%=Html.ActionLink("×¢²á", "reg", "Account")%>
+			<%=Html.ActionLink("µÇÂ¼", "loginpage", "account")%>
+			
 			<%
 				}
 			%>	

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using MWebAsk.Models;
 namespace MWebAsk.Controllers
 {
+    [NoLoginFilter]
     public class AdminController : DBController
     {
         
@@ -20,29 +21,30 @@ namespace MWebAsk.Controllers
         /// </summary>
         /// <param name="id">默认为0</param>
         /// <returns></returns>
-        public ActionResult CategoryList(long id,long editid)
+        public ActionResult CategoryList(long id, long editid)
         {
-           
-            var cate = (from c in DB.Category
-                        select c
-                            );
+
+            var cate = (from i in DB.Category select i);
             if (id != 0)
                 cate = cate.Where(c => c.ParentID == id);
             else
                 cate = cate.Where(c => c.ParentID == null);
-            ViewData["ID"] = editid;
-            if(editid!=0){
-                var th = (from i in cate where i.ID == editid select i).SingleOrDefault() ;
-                if(th!=null)
-                    ViewData["Title"] = th.Title;
-                else
-                    ViewData["ID"] = 0;
 
+            var th = (from i in cate where i.ID == editid select i).SingleOrDefault();
+            ViewData["ID"] = 0;
+            if (th != null)
+            {
+                ViewData["Title"] = th.Title;
+                ViewData["ID"] = th.ID;
             }
-                
-            ViewData["list"] = cate.ToList() ;
+            else
+            {
+               
+                ViewData["Title"] = "";
+            }
+            ViewData["list"] = cate.ToList();
             ViewData["ParentID"] = id;
-            
+           // throw new Exception((th == null).ToString());
             return View();
         }
         public ActionResult SaveCategory() {
@@ -53,7 +55,8 @@ namespace MWebAsk.Controllers
                 Category newc = new Category()
                 {
                     Title = ca.Title,
-                    UserID = UserTools.UserID
+                    UserID = UserTools.UserID,
+                    ParentID = ca.ParentID
                 };
                 DB.Category.InsertOnSubmit(newc);
             }else{

@@ -28,12 +28,12 @@
 		<%=Html.ActionLink<AdminController>(c => c.CategoryList((long)ViewData["ParentID"], p.ID), "更新")%>
 		
 	</td>
+
 	<% });
 		}
 	);
-		
-		
-		
+
+
 		
 		
 		
@@ -41,7 +41,7 @@
 			Html.Form("Admin", "SaveCategory", FormMethod.Post, Html.Validation().FormValidation("cate"))
 	)
 	{
-		if ((long)ViewData["ID"]==0)
+		if (ViewData["ID"].ToString()=="0")
 		{
 	%>
 	正在新建
