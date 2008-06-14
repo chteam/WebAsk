@@ -8,14 +8,13 @@
 	<%= Html.Validation().ValidatorRegistrationScripts() /*验证控件的前提*/%>
 	<asp:ContentPlaceHolder ID="head" runat="server">
 	</asp:ContentPlaceHolder>
-	
 </head>
 <body>
 	<div>
 		<div class="logo">
 			<img src="/img/logo-zhidao1.gif" border="0" /></div>
 		<div class="headsearch">
-			<% using (Html.Form("Account", "Login", FormMethod.Post, Html.Validation().FormValidation("login"))){ %>
+			<% using (Html.Form("Account", "Login", FormMethod.Post, Html.Validation().FormValidation("login"))) { %>
 			<input name="content" type="text" id="content" value=" " size="47" />
 			<span><a href="#" target="_blank">帮助</a></span>
 			<input type="submit" name="Submit" value="搜索问题" />
@@ -28,46 +27,38 @@
 		<div class="headlink">
 			<a href="/home/index">首页</a>
 			<%
-				if (UserTools.IsLogin)
-				{ 
+				if (UserTools.IsLogin) {
+					if (UserTools.IsAdmin) {%>
+			<%=Html.ActionLink("管理网站","index","Admin") %>
+			<%
+				}
 			%>
 			<%=Html.ActionLink("注销","logout","account") %>
-			<%if (UserTools.IsAdmin)
-	 {%>
-	 	<%=Html.ActionLink("管理网站","index","Admin") %>
-	 <%
-	 }
-				}
-				else
-				{
+			<%
+				} else {
 			%>
 			<%=Html.ActionLink("注册", "reg", "Account")%>
 			<%=Html.ActionLink("登录", "loginpage", "account")%>
-			
 			<%
 				}
-			%>	
+			%>
 		</div>
 	</div>
-	
 	<div id="Container">
 		<%
-			if (TempData.ContainsKey("msg"))
-			{
+			if (TempData.ContainsKey("msg")) {
 		%>
 		<div>
 			<%=TempData["msg"] %>
 		</div>
 		<%} %>
-
 		<asp:ContentPlaceHolder ID="ContentBody" runat="server">
 		</asp:ContentPlaceHolder>
-
 	</div>
 	<div id="footer">
 		Written by <a href="http://yz.eice.com.cn/yz" target="_blank">yz.eice.com.cn/yz</a>&nbsp;成幻工作室
 		ICP备案序号：<a href="http://www.miibeian.gov.cn/" target="_blank">黑ICP备05001964号</a>
 	</div>
-		<%= Html.Validation().ValidatorInitializationScripts() /*验证控件的收尾*/%>
+	<%= Html.Validation().ValidatorInitializationScripts() /*验证控件的收尾*/%>
 </body>
 </html>
