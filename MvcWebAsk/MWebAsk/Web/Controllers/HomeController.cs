@@ -10,7 +10,7 @@ namespace MWebAsk.Controllers
     {
         public ActionResult Index()
         {
-            ViewData["Title"] = "Home Page";
+            ViewData["Title"] = "首页";
             ViewData["Message"] = "Welcome to ASP.NET MVC!";
 			ViewData["x"] = 1;
             return View();
