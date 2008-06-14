@@ -13,7 +13,6 @@
     <link href="/css/admin.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-
     <div class="leftbox">
     <%=Html.ActionLink<AdminController>(c=>c.Index(),"管理首頁")%>
     <%=Html.ActionLink<AdminController>(c=>c.CategoryList(0,0),"分类管理")%>
