@@ -15,8 +15,8 @@ namespace MWebAsk
 
             routes.MapRoute(
               "Category",                                              // Route name
-              "{controller}/{action}/{id}",                           // URL with parameters
-              new { controller = "Home", action = "Index", id = 0 }  // Parameter defaults
+              "{controller}/{action}/{id}/{editid}",                           // URL with parameters
+              new { controller = "Home", action = "Index", id = 0, editid = 0 }  // Parameter defaults
           );
 
             routes.MapRoute(

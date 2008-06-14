@@ -82,11 +82,12 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Extension\DBController.cs" />
+    <Compile Include="Extension\Linq\ExpressionVisitor.cs" />
+    <Compile Include="Extension\Linq\LinqToSqlExtensions.cs" />
     <Compile Include="Extension\Md5.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DB\.cs" />
     <Compile Include="Models\DB\Account.cs" />
     <Compile Include="Models\DB\Account.Generated.cs">
       <DependentUpon>Account.cs</DependentUpon>
