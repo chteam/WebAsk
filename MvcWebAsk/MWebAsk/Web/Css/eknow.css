@@ -6,7 +6,7 @@ li{margin:2px 0; list-style:none;}
 .logo{ width:200px;}
 .headsearch{ width:400px; height:30px; position:absolute; top:10px; left:230px;}
 .headlink{ font-size:13px; text-align:right; margin:0 10px;}
-
+#mainContent{ float:left; width:81%;}
 #leftContent{ float:left; width:200px; margin:10px;}
 #leftContent h4{ margin:10px 0 2px 0; color:#ccc;}
 #leftContent h4 a{ color:#3b5999; }
@@ -29,8 +29,8 @@ li{margin:2px 0; list-style:none;}
 #pcenter span a{ font-size:14px; color:#3b5999;}
 #loginsub{ margin-top:10px;}
 
-#footer{margin:0 190px 0 220px; margin-top:50px; font-size:12px; text-align:center;}
-#midContent{ margin:0 190px 0 220px; padding-top:10px;}
+#footer{margin:0 190px 0 220px; margin-top:50px; font-size:12px; text-align:center; float:left;}
+#midContent{  padding-top:10px;margin:0 0 0 220px;}
 .midcontext{margin-bottom:10px;}
 .midcontext h4{text-align:left;font-size:13px; padding:2px 5px; border-bottom:1px solid #3b5999; margin:0 3px;}
 .midcontext h4 a{ color:#3b5999;text-decoration:none;}
