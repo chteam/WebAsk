@@ -31,13 +31,13 @@ namespace MWebAsk.Controllers {
 
 			var user = DB.Account.Where(c => c.ID == UserTools.UserID).SingleOrDefault();
 			if (user == null)
-				return Redirect("/");
+				return Redirect("/");//意外情况
 			else {
 				user.Point -= q.Point;
 				DB.Question.InsertOnSubmit(q);
-				DB.SubmitChanges();
+				DB.SubmitChanges();//成功了
 			}
-			return Redirect("/");
+			return Redirect("/");//应该跳到问题页
 		}
 	}
 }
