@@ -1,6 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/base.Master" AutoEventWireup="true" CodeBehind="newqst.aspx.$languageext$" Inherits="System.Web.Mvc.ViewPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 	<link href="/css/newqst.css" rel="stylesheet" type="text/css" />
+	<style type="text/css">
+		.style1
+		{
+			width: 105px;
+		}
+		</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentBody" runat="server">
 <%if (Session["username"] == null)
@@ -24,7 +30,7 @@
 		<div class="boxtext">
 			<h5 class="sendh5">
 				提问</h5>
-			<form name="ftiwen" method="post" action="<%=Url.Action("newquestion","Qst") %>">
+			<form id="form1" runat="server">
 			<ul>
 			<li class="qstname">
 				<label>
@@ -34,39 +40,33 @@
 				<label>
 					问题补充说明：</label><textarea name="content" cols="47" rows="8"></textarea>
 			</li>
-			
+			<li class="qstname">
+					<label>
+						TAG 关键字 ：</label><input name="title" type="text" value="" />
+			</li>
 			<li>
 			<div>
 				<label>
-					问题分类：</label><table class="qstlist" cellspacing="0" cellpadding="0" border="0">
+					问题分类：</label><asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+					ConnectionString="<%$ ConnectionStrings:menglei2008ConnectionString %>" 
+					SelectCommand="SELECT fclass_topic, fclass_ID FROM fclass WHERE (fclass_shuxing = 0)">
+				</asp:SqlDataSource>
+				<asp:SqlDataSource ID="SqlDataSource2" runat="server" 
+									ConnectionString="<%$ ConnectionStrings:menglei2008ConnectionString %>" 
+									
+					SelectCommand="SELECT fclass_topic FROM fclass WHERE (fclass_shuxing = @fclass_ID)">
+									<SelectParameters>
+										<asp:ControlParameter ControlID="ListBox1" DefaultValue="1" Name="fclass_ID" 
+											PropertyName="SelectedValue" Type="Int32" />
+									</SelectParameters>
+								</asp:SqlDataSource>
+				<table class="qstlist" cellspacing="0" cellpadding="0" border="0">
 					<tbody>
 						<tr>
-							<td valign="top" style="width:125px;">
-								<select id="ClassLevel1" name="ClassLevel1" size="8" style="width: 125px; height: 375px;">
-									<option value="74">电脑/网络</option>
-									<option value="78">体育/运动</option>
-									<option value="80">生活/时尚</option>
-									<option value="95">电子数码</option>
-									<option value="155">购车养车</option>
-									<option value="147">美容/减肥/化妆</option>
-									<option value="148">美食/烹饪</option>
-									<option value="82">商业/理财</option>
-									<option value="928">健康/养生</option>
-									<option value="79">医疗/疾病</option>
-									<option value="83">教育/学业/考试</option>
-									<option value="187">外语/出国</option>
-									<option value="158">交通/旅游</option>
-									<option value="201">人文学科</option>
-									<option value="202">理工学科</option>
-									<option value="84">社会/文化</option>
-									<option value="85">艺术</option>
-									<option value="99">音乐</option>
-									<option value="77">游戏</option>
-									<option value="1031">休闲/爱好</option>
-									<option value="75">娱乐/明星</option>
-									<option value="81">烦恼</option>
-									<option value="1">地区</option>
-								</select>
+							<td valign="top" class="style1">
+							<asp:ListBox ID="ListBox1" runat="server" AutoPostBack="True" 
+									DataSourceID="SqlDataSource1" DataTextField="fclass_topic" 
+									DataValueField="fclass_ID" Height="200px" Width="110px"></asp:ListBox>
 							</td>
 							<td width="50">
 								<div align="center">
@@ -74,20 +74,10 @@
 								</div>
 							</td>
 							<td valign="top">
-								<select id="ClassLevel2" name="ClassLevel2" size="8" style="width: 90px; height: 375px;">
-									<option value="">不选</option>
-								</select>
-							</td>
-							<td width="20">
-								<div id="jiantou" align="center" style="display: none;">
-									<b>→</b>
-								</div>
-							</td>
-							<td valign="top">
-								<select id="ClassLevel3" name="ClassLevel3" onchange="getCidValue();" size="8" style="width: 90px;
-									height: 375px; display: none;">
-									<option value="">不选</option>
-								</select>
+							<asp:ListBox ID="ListBox2" runat="server" DataSourceID="SqlDataSource2" 
+									DataTextField="fclass_topic" DataValueField="fclass_topic" Height="200px" 
+									Width="121px"></asp:ListBox>
+								
 							</td>
 						</tr>
 					</tbody>
@@ -127,5 +117,6 @@
 			</form>
 		</div>
 	</div>
+	
 	<%} %>
 </asp:Content>
