@@ -1,2 +1,4 @@
-﻿.leftbox{ width:200px; background-color:#e9e9e9; border-right:1px solid gray; float:left;}
-.mainbox{ margin-left:200px; background-color:Gray;}
+﻿body{ font-size:12px;}
+table tbody td{ text-align:center;}
+.leftbox{ width:170px; background-color:#e9e9e9; border:1px solid gray; float:left; padding:10px;}
+.mainbox{ margin-left:200px; background-color:#f7f7f7; padding:10px;border:1px solid gray;}
