@@ -203,6 +203,50 @@ namespace MWebAsk.Models
                 }
             }
         }
+        
+        private int _hits;
+
+        /// <summary>
+        /// Gets or sets the Hits column value.
+        /// </summary>
+        [Column(Name="Hits", Storage="_hits", DbType="int NOT NULL", CanBeNull=false)]
+        public int Hits
+        {
+            get { return _hits; }
+            set
+            {
+                if (_hits != value)
+                {
+                    OnHitsChanging(value);
+                    OnPropertyChanging("Hits");
+                    _hits = value;
+                    OnPropertyChanged("Hits");
+                    OnHitsChanged();
+                }
+            }
+        }
+        
+        private int _point;
+
+        /// <summary>
+        /// Gets or sets the Point column value.
+        /// </summary>
+        [Column(Name="Point", Storage="_point", DbType="int NOT NULL", CanBeNull=false)]
+        public int Point
+        {
+            get { return _point; }
+            set
+            {
+                if (_point != value)
+                {
+                    OnPointChanging(value);
+                    OnPropertyChanging("Point");
+                    _point = value;
+                    OnPropertyChanged("Point");
+                    OnPointChanged();
+                }
+            }
+        }
         #endregion
         
         #region Association Mapped Properties
@@ -348,6 +392,16 @@ namespace MWebAsk.Models
         partial void OnCategoryIDChanging(long value);
         /// <summary>Called after CategoryID has Changed.</summary>
         partial void OnCategoryIDChanged();
+        /// <summary>Called when Hits is changing.</summary>
+        /// <param name="value">The new value.</param>
+        partial void OnHitsChanging(int value);
+        /// <summary>Called after Hits has Changed.</summary>
+        partial void OnHitsChanged();
+        /// <summary>Called when Point is changing.</summary>
+        /// <param name="value">The new value.</param>
+        partial void OnPointChanging(int value);
+        /// <summary>Called after Point has Changed.</summary>
+        partial void OnPointChanged();
         #endregion
         
     }

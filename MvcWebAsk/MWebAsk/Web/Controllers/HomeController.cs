@@ -12,7 +12,7 @@ namespace MWebAsk.Controllers
         {
             ViewData["Title"] = "Home Page";
             ViewData["Message"] = "Welcome to ASP.NET MVC!";
-
+			ViewData[]
             return View();
         }
 

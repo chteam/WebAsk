@@ -140,6 +140,28 @@ namespace MWebAsk.Models
                 }
             }
         }
+        
+        private int _cOrder;
+
+        /// <summary>
+        /// Gets or sets the COrder column value.
+        /// </summary>
+        [Column(Name="COrder", Storage="_cOrder", DbType="int NOT NULL", CanBeNull=false)]
+        public int COrder
+        {
+            get { return _cOrder; }
+            set
+            {
+                if (_cOrder != value)
+                {
+                    OnCOrderChanging(value);
+                    OnPropertyChanging("COrder");
+                    _cOrder = value;
+                    OnPropertyChanged("COrder");
+                    OnCOrderChanged();
+                }
+            }
+        }
         #endregion
         
         #region Association Mapped Properties
@@ -298,6 +320,11 @@ namespace MWebAsk.Models
         partial void OnParentIDChanging(Nullable<long> value);
         /// <summary>Called after ParentID has Changed.</summary>
         partial void OnParentIDChanged();
+        /// <summary>Called when COrder is changing.</summary>
+        /// <param name="value">The new value.</param>
+        partial void OnCOrderChanging(int value);
+        /// <summary>Called after COrder has Changed.</summary>
+        partial void OnCOrderChanged();
         #endregion
         
     }

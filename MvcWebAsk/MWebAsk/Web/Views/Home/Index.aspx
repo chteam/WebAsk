@@ -32,41 +32,12 @@
 								<li>今日新回答数：0</li>
 							</ul>
 						</div>
-						<h4>
-							<a href="../list/chsubcls.asp?id=1">编程语言</a> (75)</h4>
-						<a href="../list/chsubcls1.asp?id=14">Visual Basic</a> <a href="../list/chsubcls1.asp?id=15">
-							C/C++</a> <a href="../list/chsubcls1.asp?id=16">Delphi</a> <a href="../list/chsubcls.asp?id=1">
-								...</a>
-						<h4>
-							<a href="../list/chsubcls.asp?id=5">编程技术</a> (7)</h4>
-						<a href="../list/chsubcls1.asp?id=54">数据库</a> <a href="../list/chsubcls1.asp?id=55">
-							Internet编程</a> <a href="../list/chsubcls1.asp?id=56">Windows API</a> <a href="../list/chsubcls.asp?id=5">
-								...</a>
-						<h4>
-							<a href="../list/chsubcls.asp?id=189">网络</a> (14)</h4>
-						<a href="../list/chsubcls1.asp?id=190">Linux/Unix服务器</a> <a href="../list/chsubcls1.asp?id=191">
-							WIN服务器</a> <a href="../list/chsubcls1.asp?id=192">局域网技术</a> <a href="../list/chsubcls.asp?id=189">
-								...</a>
-						<h4>
-							<a href="../list/chsubcls.asp?id=2">硬件</a> (13)</h4>
-						<a href="../list/chsubcls1.asp?id=25">CPU</a> <a href="../list/chsubcls1.asp?id=26">
-							内存</a> <a href="../list/chsubcls1.asp?id=27">硬盘</a> <a href="../list/chsubcls.asp?id=2">
-								...</a>
-						<h4>
-							<a href="../list/chsubcls.asp?id=3">软件</a> (8)</h4>
-						<a href="../list/chsubcls1.asp?id=37">系统工具</a> <a href="../list/chsubcls1.asp?id=38">
-							网络工具</a> <a href="../list/chsubcls1.asp?id=39">图文处理</a> <a href="../list/chsubcls.asp?id=3">
-								...</a>
-						<h4>
-							<a href="../list/chsubcls.asp?id=4">游戏</a> (6)</h4>
-						<a href="../list/chsubcls1.asp?id=42">网络游戏</a> <a href="../list/chsubcls1.asp?id=43">
-							单机游戏</a> <a href="../list/chsubcls1.asp?id=44">电视游戏</a> <a href="../list/chsubcls.asp?id=4">
-								...</a>
-						<h4>
-							<a href="../list/chsubcls.asp?id=6">生活/其它</a> (6)</h4>
-						<a href="../list/chsubcls1.asp?id=67">教育/科学</a> <a href="../list/chsubcls1.asp?id=68">
-							商业/经济</a> <a href="../list/chsubcls1.asp?id=69">体育/运动</a> <a href="../list/chsubcls.asp?id=6">
-								...</a>
+						<h4><a href="../list/chsubcls.asp?id=1">编程语言</a> (75)</h4>
+						<a href="../list/chsubcls1.asp?id=14">Visual Basic</a>
+						<a href="../list/chsubcls1.asp?id=15">C/C++</a>
+						<a href="../list/chsubcls1.asp?id=16">Delphi</a>
+						<a href="../list/chsubcls.asp?id=1">...</a>
+						
 					</div>
 				</div>
 			</div>
