@@ -50,7 +50,4 @@
     <Content Include="System.Web.Mvc.dll" />
     <Content Include="System.Web.Routing.dll" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="WebAsk.bak" />
-  </ItemGroup>
 </Project>
