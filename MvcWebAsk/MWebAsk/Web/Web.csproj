@@ -259,6 +259,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
     </None>
     <Content Include="Css\admin.css" />
+    <Content Include="Js\jquery.js" />
     <Content Include="Views\Question\Add.aspx" />
     <Content Include="Views\Admin\Index.aspx" />
     <Content Include="Views\Shared\ViewMaster.Master" />
