@@ -10,6 +10,7 @@
 			new Hash(empty => "没有数据", style => "width: 100%"),
 			column =>
 			{
+				column.For(p => p.COrder, "顺序");
 				column.For(p => p.ID);
 				column.For("名称").Do(p =>
 				{ 
@@ -60,6 +61,9 @@
 				<%=Html.Hidden("ID") %>
 				title：</label><%=Html.TextBox("Title")%>
 				<%= Html.Validation().RequiredValidator("r4Title", "Title","请输入一个名称.", "cate")%>
+				corder:<%=Html.TextBox("COrder")%>
+				<%= Html.Validation().RegularExpressionValidator("r4COrder", "COrder",@"\d+" ,"必为数字.", "cate")%>
+				<%= Html.Validation().RequiredValidator("r4O", "COrder", "必写.", "cate")%>
 				<%=Html.Hidden("ParentID")%>
 			</li>
 		</ul>
