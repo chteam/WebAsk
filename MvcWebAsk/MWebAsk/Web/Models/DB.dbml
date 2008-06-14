@@ -20,6 +20,7 @@
       <Column Name="Title" Member="Title" Storage="_title" Type="System.String" DbType="nvarchar(50) NOT NULL" CanBeNull="false" />
       <Column Name="UserID" Member="UserID" Storage="_userID" Type="System.Int64" DbType="bigint NOT NULL" CanBeNull="false" />
       <Column Name="ParentID" Member="ParentID" Storage="_parentID" Type="System.Int64" DbType="bigint" CanBeNull="true" />
+      <Column Name="COrder" Member="COrder" Storage="_cOrder" Type="System.Int32" DbType="int NOT NULL" CanBeNull="false" />
       <Association Name="FK_Category_Account" Member="UserAccount" Storage="_userAccount" ThisKey="UserID" OtherKey="ID" Type="Account" IsForeignKey="true" />
       <Association Name="FK_Category_Category" Member="ParentCategory" Storage="_parentCategory" ThisKey="ParentID" OtherKey="ID" Type="Category" IsForeignKey="true" />
       <Association Name="FK_Category_Category" Member="ParentCategoryList" Storage="_parentCategoryList" ThisKey="ID" OtherKey="ParentID" Type="Category" />
@@ -45,6 +46,8 @@
       <Column Name="Edittime" Member="Edittime" Storage="_edittime" Type="System.DateTime" DbType="smalldatetime NOT NULL" CanBeNull="false" />
       <Column Name="UserID" Member="UserID" Storage="_userID" Type="System.Int64" DbType="bigint NOT NULL" CanBeNull="false" />
       <Column Name="CategoryID" Member="CategoryID" Storage="_categoryID" Type="System.Int64" DbType="bigint NOT NULL" CanBeNull="false" />
+      <Column Name="Hits" Member="Hits" Storage="_hits" Type="System.Int32" DbType="int NOT NULL" CanBeNull="false" />
+      <Column Name="Point" Member="Point" Storage="_point" Type="System.Int32" DbType="int NOT NULL" CanBeNull="false" />
       <Association Name="FK_Question_Account" Member="UserAccount" Storage="_userAccount" ThisKey="UserID" OtherKey="ID" Type="Account" IsForeignKey="true" />
       <Association Name="FK_Question_Category" Member="Category" Storage="_category" ThisKey="CategoryID" OtherKey="ID" Type="Category" IsForeignKey="true" />
       <Association Name="FK_Reply_Question" Member="ReplyList" Storage="_replyList" ThisKey="ID" OtherKey="QuestionID" Type="Reply" />
