@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MWebAsk.Views {
+namespace MWebAsk.Views.Question {
     
     
-    public partial class Add {
+    public partial class CateList {
     }
 }
