@@ -250,6 +250,7 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
     </None>
+    <Content Include="Css\admin.css" />
     <Content Include="Views\Admin\Index.aspx" />
     <Content Include="Views\Shared\ViewMaster.Master" />
     <Content Include="Views\Admin\CategoryList.aspx" />
