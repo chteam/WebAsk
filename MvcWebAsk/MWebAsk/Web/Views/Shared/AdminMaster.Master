@@ -14,10 +14,11 @@
 </head>
 <body>
     <div class="leftbox">
-    <%=Html.ActionLink<AdminController>(c=>c.Index(),"管理首頁")%>
-    <%=Html.ActionLink<AdminController>(c=>c.CategoryList(0,0),"分类管理")%>
-    
-     <%=Html.ActionLink<HomeController>(c=>c.Index(),"網站首頁")%>
+    <ul>
+    <li><%=Html.ActionLink<AdminController>(c=>c.Index(),"管理首頁")%></li>
+    <li><%=Html.ActionLink<AdminController>(c=>c.CategoryList(0,0),"分类管理")%></li>
+    <li><%=Html.ActionLink<HomeController>(c=>c.Index(),"網站首頁")%></li>
+    </ul>
     </div>
     <div class="mainbox">
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

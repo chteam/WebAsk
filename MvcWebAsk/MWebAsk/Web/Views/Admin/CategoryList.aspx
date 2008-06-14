@@ -59,12 +59,17 @@
 			<li>
 				<label>
 				<%=Html.Hidden("ID") %>
-				title：</label><%=Html.TextBox("Title")%>
-				<%= Html.Validation().RequiredValidator("r4Title", "Title","请输入一个名称.", "cate")%>
-				corder:<%=Html.TextBox("COrder")%>
-				<%= Html.Validation().RegularExpressionValidator("r4COrder", "COrder",@"\d+" ,"必为数字.", "cate")%>
+				分类名称：</label><%=Html.TextBox("Title")%>
+				<span><%= Html.Validation().RequiredValidator("r4Title", "Title","请输入一个名称.", "cate")%></span>
+			</li>
+				
+			<li>
+					<label>
+						分类顺序：<%=Html.TextBox("COrder")%></label>
+					<span>
+						<%= Html.Validation().RegularExpressionValidator("r4COrder", "COrder",@"\d+" ,"必为数字.", "cate")%>
 				<%= Html.Validation().RequiredValidator("r4O", "COrder", "必写.", "cate")%>
-				<%=Html.Hidden("ParentID")%>
+				<%=Html.Hidden("ParentID")%></span>
 			</li>
 		</ul>
 	</div>
