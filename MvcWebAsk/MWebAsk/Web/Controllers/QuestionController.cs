@@ -7,8 +7,11 @@ using MWebAsk.Models;
 
 namespace MWebAsk.Controllers {
 	public class QuestionController : DBController {
-		public void Index() {
-			// Add action logic here
+		public ActionResult Index(long id) {
+			Question q = DB.Question.Where(t => t.ID == id).SingleOrDefault();
+			if (q == null)
+				ViewData["msg"] = "不存在";
+			return View(q);
 		}
 		[NoLoginFilter]
 		public ActionResult Add() {
@@ -40,10 +43,7 @@ namespace MWebAsk.Controllers {
 			return Redirect("/");//应该跳到问题页
 		}
 	
-		public ActionResult QuestionList(long cid){
-			Question q = new Question();
-			
-			return View();
-		}
+	
+		
 	}
 }

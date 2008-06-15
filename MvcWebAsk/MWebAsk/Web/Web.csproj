@@ -214,6 +214,13 @@
     <Compile Include="Views\Question\CateList.ascx.designer.cs">
       <DependentUpon>CateList.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Question\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Question\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Question\QuestionList.aspx.cs">
       <DependentUpon>QuestionList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -306,6 +313,7 @@
     <Content Include="Views\Question\Add.aspx" />
     <Content Include="Views\Admin\Index.aspx" />
     <Content Include="Views\Question\CateList.ascx" />
+    <Content Include="Views\Question\Index.aspx" />
     <Content Include="Views\Question\QuestionList.aspx" />
     <Content Include="Views\Shared\ViewMaster.Master" />
     <Content Include="Views\Admin\CategoryList.aspx" />

@@ -13,7 +13,8 @@
 		 %>
 		 
 	<li>
-	<%=q.Title %> <%=q.Addtime.ToString("Mm dd/hh:mm") %> <%=q.UserID %>
+	<%=Html.ActionLink<QuestionController>(c=>c.Index(q.ID),q.Title) %>
+	<%=q.Addtime.ToString("Mm dd/hh:mm") %> <%=q.UserID %>
 	<%=Enum.GetName(QType.待解决.GetType(),q.Situation) %>
 	</li>
 	<%} %>
