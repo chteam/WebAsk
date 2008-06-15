@@ -18,7 +18,7 @@ namespace MWebAsk.Controllers
 									   descending
 									   select i).Take(7).ToList();
 			ViewData["待解决的问题Top5"] = (from q in DB.Question
-									  where q.Situation == QType.待解决.ToInt()
+									  where q.Situation == QType.待解决.ToByte()
 									  select q).Take(5).OrderByDescending(q => q.Addtime).ToList();
 
             return View();

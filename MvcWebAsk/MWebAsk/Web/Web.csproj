@@ -80,6 +80,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PublishController.cs" />
     <Compile Include="Controllers\QuestionController.cs" />
+    <Compile Include="Controllers\ReplyController.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

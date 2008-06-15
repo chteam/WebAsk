@@ -8,7 +8,11 @@ using MWebAsk.Models;
 namespace MWebAsk.Controllers {
 	public class QuestionController : DBController {
 		public ActionResult Index(long id) {
-			Question q = DB.Question.Where(t => t.ID == id).SingleOrDefault();
+			Question q = DB.Question
+				.Where(t => t.ID == id)
+				.OrderByDescending(c => c.Situation)
+				.OrderByDescending(c => c.Addtime)
+				.SingleOrDefault();
 			if (q == null)
 				ViewData["msg"] = "不存在";
 			return View(q);
