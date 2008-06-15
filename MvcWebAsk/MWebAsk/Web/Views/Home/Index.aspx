@@ -76,12 +76,14 @@
 				<a href="../list/list.asp?lei=weijie" class="lbk">待解决的问题</a>:</h4>
 			<div class="boxtext">
 				<ul>
-					<li><a href="../qanda/showquestion.asp?id=300" target="_blank">bingdonglidetiwen</a>&nbsp;<a
-						class="lgy" href="../list/chsubcls1.asp?id=14">[Visual Basic]</a> </li>
-					<li><a href="../qanda/showquestion.asp?id=299" target="_blank">bingdongli de tiwen</a>&nbsp;<a
-						class="lgy" href="../list/chsubcls1.asp?id=14">[Visual Basic]</a> </li>
-					<li><a href="../qanda/showquestion.asp?id=298" target="_blank">问题补充页面</a>&nbsp;<a
-						class="lgy" href="../list/chsubcls1.asp?id=196">[网站推广]</a> </li>
+				<%
+					foreach (Question q in ViewData["待解决的问题Top5"] as List<Question>) {
+								 %>
+					<li>
+					<%=Html.ActionLink<QuestionController>(c=>c.Index(q.ID),q.Title) %>
+					<%=Html.ActionLink<CategoryController>(c=>c.Index(q.CategoryID),string.Format("[{0}]",q.Category.Title)) %>
+
+						<%} %>
 				</ul>
 				<a href="../list/list.asp?lei=weijie" class="lmore" target="_blank">更多&gt;&gt;</a>
 			</div>

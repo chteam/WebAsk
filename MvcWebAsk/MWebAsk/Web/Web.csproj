@@ -85,6 +85,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Extension\DBController.cs" />
+    <Compile Include="Extension\EnumExtension.cs" />
     <Compile Include="Extension\Linq\ExpressionVisitor.cs" />
     <Compile Include="Extension\Linq\LinqToSqlExtensions.cs" />
     <Compile Include="Extension\Md5.cs" />
@@ -207,26 +208,12 @@
     <Compile Include="Views\Home\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Question\CateList.ascx.cs">
-      <DependentUpon>CateList.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Question\CateList.ascx.designer.cs">
-      <DependentUpon>CateList.ascx</DependentUpon>
-    </Compile>
     <Compile Include="Views\Question\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Question\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Question\QuestionList.aspx.cs">
-      <DependentUpon>QuestionList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Question\QuestionList.aspx.designer.cs">
-      <DependentUpon>QuestionList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Shared\AdminMaster.Master.cs">
       <DependentUpon>AdminMaster.Master</DependentUpon>
@@ -312,9 +299,7 @@
     <Content Include="Views\Publish\Index.aspx" />
     <Content Include="Views\Question\Add.aspx" />
     <Content Include="Views\Admin\Index.aspx" />
-    <Content Include="Views\Question\CateList.ascx" />
     <Content Include="Views\Question\Index.aspx" />
-    <Content Include="Views\Question\QuestionList.aspx" />
     <Content Include="Views\Shared\ViewMaster.Master" />
     <Content Include="Views\Admin\CategoryList.aspx" />
     <Content Include="Views\Shared\AdminMaster.Master" />

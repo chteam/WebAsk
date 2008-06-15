@@ -17,6 +17,10 @@ namespace MWebAsk.Controllers
 									   orderby i.Addtime
 									   descending
 									   select i).Take(7).ToList();
+			ViewData["待解决的问题Top5"] = (from q in DB.Question
+									  where q.Situation == QType.待解决.ToInt()
+									  select q).Take(5).ToList();
+
             return View();
         }
 
