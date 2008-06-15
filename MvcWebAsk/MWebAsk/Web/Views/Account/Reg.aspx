@@ -18,7 +18,13 @@
                 "re4Email", "Email", @"[a-zA-Z0-9]([a-zA-Z0-9]*[-_.]?[a-zA-Z0-9]+)+@([\w-]+\.)+[a-zA-Z]{2,}",
                				"邮箱格式不正确", "reg")%>
 			</li>
-			
+					<li>
+			<label>
+				昵称：</label><%=Html.TextBox("NickName") %>
+			* <span></span>
+				<%= Html.Validation().RequiredValidator("r4NickName", "NickName",
+                                            "请输入您的昵称", "reg")%>
+     			</li>
 		<li>
 			<label>
 				密 码：</label><%=Html.Password("Password") %>

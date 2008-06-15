@@ -57,6 +57,7 @@ namespace MWebAsk.Controllers
             {
                 Session["UserID"] = islogin.ID;
                 Session["Point"] = islogin.Point;
+				Session["NickName"] = islogin.NickName;
                 Session["StatusLevel"] = islogin.StatusLevel;
                 return RedirectToAction("index", "home");
             }

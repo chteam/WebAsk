@@ -51,7 +51,7 @@
 					%>
 					<div>
 						<ul>
-							<li>您好：<%=Session["UserID"]%></li>
+							<li>您好：<%=UserTools.NickName%></li>
 							<li><a href="../help/help.asp#n5" target="_blank"><%=UserLevelTools.UserLevelString(Session["Point"])%></a> ( <%=Session["Point"] %> )</li>
 						</ul>
 					</div>

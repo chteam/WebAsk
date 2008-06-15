@@ -27,6 +27,14 @@ namespace MWebAsk
                     return 0;
             }
         }
+		public static string NickName {
+			get {
+				if (UserTools.IsLogin) {
+					return HttpContext.Current.Session["NickName"].ToString();
+				} else
+					return "";
+			}
+		}
         public static bool IsLogin
         {
             get
