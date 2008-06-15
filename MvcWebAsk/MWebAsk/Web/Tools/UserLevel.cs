@@ -13,8 +13,14 @@ using System.Collections.Generic;
 
 namespace MWebAsk
 {
+	/// <summary>
+	/// 用户等级工具类
+	/// </summary>
     public class UserLevelTools
     {
+		/// <summary>
+		/// 用户等级字典
+		/// </summary>
         static Dictionary<int, string> x = new Dictionary<int, string>()
         {
             {50,"初级"},
@@ -25,6 +31,11 @@ namespace MWebAsk
             {4000,"五级"},
             {7000,"六级"}
         };
+		/// <summary>
+		/// 由用户分类获取用户等级
+		/// </summary>
+		/// <param name="point">分数</param>
+		/// <returns></returns>
         static public string UserLevelString(object point)
         {
             int p = 0;

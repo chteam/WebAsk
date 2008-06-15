@@ -12,8 +12,14 @@ using System.Xml.Linq;
 
 namespace MWebAsk
 {
+	/// <summary>
+	/// 当前登录用户的工具类
+	/// </summary>
     public class UserTools
     {
+		/// <summary>
+		/// 获取用户ID
+		/// </summary>
         public static long UserID
         {
             get {
@@ -27,6 +33,9 @@ namespace MWebAsk
                     return 0;
             }
         }
+		/// <summary>
+		/// 用户昵称
+		/// </summary>
 		public static string NickName {
 			get {
 				if (UserTools.IsLogin) {
@@ -35,6 +44,9 @@ namespace MWebAsk
 					return "";
 			}
 		}
+		/// <summary>
+		/// 判断用户是否登录
+		/// </summary>
         public static bool IsLogin
         {
             get
@@ -42,6 +54,9 @@ namespace MWebAsk
                 return HttpContext.Current.Session["UserID"] != null;
             }
         }
+		/// <summary>
+		/// 判断是否为管理员
+		/// </summary>
         public static bool IsAdmin {
             get {
                 if (UserTools.IsLogin)
