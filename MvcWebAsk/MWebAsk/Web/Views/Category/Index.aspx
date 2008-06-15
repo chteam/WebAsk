@@ -5,4 +5,18 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentBody" runat="server">
 	<%=Html.RenderUserControl("/views/category/catelist.ascx",ViewData["catelist"]) %>
+	
+	<div>
+	<ul>
+	<%
+		foreach (Question q in ViewData["qlist"] as List<Question>) {
+		 %>
+		 
+	<li>
+	<%=q.Title %> <%=q.Addtime.ToString("Mm dd/hh:mm") %> <%=q.UserID %>
+	<%=Enum.GetName(QType.待解决.GetType(),q.Situation) %>
+	</li>
+	<%} %>
+	</ul>
+	</div>
 </asp:Content>
