@@ -8,3 +8,8 @@
 #myqlist{ font-size:12px; padding:10px; background-color:#f7f7f7;}
 
 #myqlist li{ list-style:none; margin-top:6px;}
+
+.reply{ padding:10px; border-top:1px solid gray; margin-top:20px;}
+.reply textarea{ margin-top:10px;}
+.admin{ float:right; color:#666; margin-top:15px;}
+.replylist{ border-top:1px solid #gray; margin:10px 0; padding:10px;}
