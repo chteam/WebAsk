@@ -3,3 +3,8 @@
 .qstname input{ width:400px;}
 #cDiv li{margin-top:10px;}
 .qstlist{ margin-left:90px;}
+
+
+#myqlist{ font-size:12px; padding:10px; background-color:#f7f7f7;}
+
+#myqlist li{ list-style:none; margin-top:6px;}

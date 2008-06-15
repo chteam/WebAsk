@@ -6,13 +6,15 @@
 	<div class="listtop">
 		<a href="/home/index">成幻易知</a> &gt; 我的提问
 	</div>
-	<div id="cDiv" class="listleft box">
+	<div id="myqlist" class="listleft box">
+	<ul>
 <%
 	foreach (Question q in ViewData.Model) { 
-	 %>
+	 %><li>
 	 <%=Html.ActionLink<QuestionController>(c=>c.Index(q.ID),q.Title) %>
 	 <%=Enum.GetName(typeof(QType),q.Situation) %>
-	 <%=q.Addtime %>
+	 <%=q.Addtime %></li>
 	 <%} %>
+	 </ul>
 </div>
 </asp:Content>
