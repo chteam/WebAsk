@@ -11,5 +11,5 @@
 
 .reply{ padding:10px; border-top:1px solid gray; margin-top:20px;}
 .reply textarea{ margin-top:10px;}
-.admin{ float:right; color:#666; margin-top:15px;}
+.admin{ float:right; color:#666; margin-top:15px; margin-left:10px;}
 .replylist{ border-top:1px solid #gray; margin:10px 0; padding:10px;}

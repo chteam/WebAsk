@@ -39,7 +39,8 @@
 			) { 
 	%>
 
-	<%=Html.ActionLink<ReplyController>(c => c.SetBest(q.ID, r.ID), "设为最佳答案")%>
+		<span class="admin">
+			<%=Html.ActionLink<ReplyController>(c => c.SetBest(q.ID, r.ID), "设为最佳答案")%></span>
 	<%
 		if (UserTools.IsAdmin) {
 	%>
