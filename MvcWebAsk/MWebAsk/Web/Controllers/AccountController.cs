@@ -31,6 +31,7 @@ namespace MWebAsk.Controllers
             else
             {
                 user.Password = user.Password.Md5_32();
+				user.Point = 50;//默认给50分
                 DB.Account.InsertOnSubmit(user);
                 DB.SubmitChanges();
                 return View("Regsuccess",user);

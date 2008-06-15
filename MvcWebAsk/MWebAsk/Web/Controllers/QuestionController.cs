@@ -32,9 +32,9 @@ namespace MWebAsk.Controllers {
 			q.Addtime = DateTime.Now;
 			q.Edittime = DateTime.Now;
 
-			var user = DB.Account.Where(c => c.ID == UserTools.UserID && c.Point > q.Point).SingleOrDefault();
+			var user = DB.Account.Where(c => c.ID == UserTools.UserID && c.Point >= q.Point).SingleOrDefault();
 			if (user == null) {
-				ViewData["msg"] = "您的积分不足";
+				TempData["msg"] = "您的积分不足";
 				this.RedirectToReferrer();
 			} else {
 				user.Point -= q.Point;
