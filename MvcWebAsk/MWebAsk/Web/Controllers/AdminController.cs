@@ -89,5 +89,31 @@ namespace MWebAsk.Controllers {
 			this.RedirectToReferrer();
 		}
 #endregion
+
+		public ActionResult Question(long id) {
+			var x = (from i in DB.Question
+					 where i.ID == id
+					 select i).SingleOrDefault();
+			return View(x);
+		}
+		public void DelQ(long id) {
+			var x = (from i in DB.Question
+					 where i.ID == id
+					 select i).SingleOrDefault();
+			if (x == null) {
+				TempData["msg"] = "删除失败";
+			} else {
+				DB.Question.DeleteOnSubmit(x);
+				DB.SubmitChanges();
+				TempData["msg"] = "删除成功";
+			}
+			this.RedirectToReferrer();
+		}
+		public ActionResult Reply(long id) {
+			return View();
+		}
+		public void DelR(long id) { 
+		
+		}
 	}
 }
