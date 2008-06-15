@@ -57,7 +57,8 @@
 						<ul>
 							<li>
 								<%=Html.ActionLink<QuestionController>(c => c.MyQuestion(), "我的提问")%></li>
-							<li><a href="../user/user.asp?lei=myda" target="_blank">我的回答</a></li>
+							<li>
+							<%=Html.ActionLink<ReplyController>(c=>c.MyReply(),"我的回答") %>
 							<li><a href="<%=Url.Action("Logout","account") %>">退出</a></li>
 						</ul>
 					</div>

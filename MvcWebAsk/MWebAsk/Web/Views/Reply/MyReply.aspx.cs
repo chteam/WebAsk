@@ -5,6 +5,6 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace MWebAsk.Views.Reply {
-	public partial class MyReply : ViewPage<Models.Question> {
+	public partial class MyReply : ViewPage<List<Models.Question>> {
 	}
 }

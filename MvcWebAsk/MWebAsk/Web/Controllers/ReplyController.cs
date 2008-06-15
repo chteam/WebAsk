@@ -10,6 +10,7 @@ namespace MWebAsk.Controllers {
 		public void Index() {
 			// Add action logic here
 		}
+		[NoLoginFilter]
 		public void Add() {
 			Reply r = new Reply();
 			BindingHelperExtensions.UpdateFrom(r, Request.Form);
@@ -22,6 +23,7 @@ namespace MWebAsk.Controllers {
 			DB.SubmitChanges();
 			this.RedirectToReferrer();
 		}
+		[NoLoginFilter]
 		public void SetBest(long qid, long rid) {
 			var x = DB.Reply.Where(c => c.ID == rid && c.QuestionID == qid).SingleOrDefault();
 			var q = DB.Question.Where(c => c.ID == qid).SingleOrDefault();
@@ -35,12 +37,13 @@ namespace MWebAsk.Controllers {
 			}
 			this.RedirectToReferrer();
 		}
+		[NoLoginFilter]
 		public ActionResult MyReply() {
 			var qs = (from t in DB.Reply
 					  join q in DB.Question on t.QuestionID equals q.ID
 					  where t.UserID == UserTools.UserID
 					  select q
-						  );
+						  ).ToList();
 					 
 			return View(qs);
 		}

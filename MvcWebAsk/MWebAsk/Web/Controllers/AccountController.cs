@@ -68,7 +68,8 @@ namespace MWebAsk.Controllers
             }
             
         }
-        public ActionResult Logout() {
+		[NoLoginFilter]
+		public ActionResult Logout() {
             Session.Clear();
             return RedirectToAction("index", "home");
         }

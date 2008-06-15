@@ -37,6 +37,7 @@ namespace MWebAsk.Controllers {
 		/// 问题中联动列表
 		/// </summary>
 		/// <returns></returns>
+		[NoLoginFilter]
 		public ActionResult CateList() {
 			long id=0;
 			long.TryParse(Request.Form["id"], out id);
@@ -47,6 +48,7 @@ namespace MWebAsk.Controllers {
 		/// 添加问题的保存页
 		/// </summary>
 		/// <returns></returns>
+		[NoLoginFilter]
 		public ActionResult Save() {
 			Question q = new Question();
 			BindingHelperExtensions.UpdateFrom(q, Request.Form);
@@ -71,6 +73,7 @@ namespace MWebAsk.Controllers {
 		/// 我的问题
 		/// </summary>
 		/// <returns></returns>
+		[NoLoginFilter]
 		public ActionResult MyQuestion() {
 			var q = DB.Question
 				.Where(t => t.UserID == UserTools.UserID)
