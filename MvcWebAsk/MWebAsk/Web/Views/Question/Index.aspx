@@ -8,5 +8,6 @@
 %>
 	 <%=q.Title %>
 	 <%=q.Addtime.ToString("yyMmdd hh:mm:ss") %>
+	 提问人:<%=q.UserAccount.NickName %>
 <br />
 </asp:Content>
