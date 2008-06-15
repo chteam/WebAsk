@@ -158,6 +158,28 @@ namespace MWebAsk.Models
                 }
             }
         }
+        
+        private string _nickName;
+
+        /// <summary>
+        /// Gets or sets the NickName column value.
+        /// </summary>
+        [Column(Name="NickName", Storage="_nickName", DbType="nvarchar(50) NOT NULL", CanBeNull=false)]
+        public string NickName
+        {
+            get { return _nickName; }
+            set
+            {
+                if (_nickName != value)
+                {
+                    OnNickNameChanging(value);
+                    OnPropertyChanging("NickName");
+                    _nickName = value;
+                    OnPropertyChanged("NickName");
+                    OnNickNameChanged();
+                }
+            }
+        }
         #endregion
         
         #region Association Mapped Properties
@@ -307,6 +329,11 @@ namespace MWebAsk.Models
         partial void OnPointChanging(int value);
         /// <summary>Called after Point has Changed.</summary>
         partial void OnPointChanged();
+        /// <summary>Called when NickName is changing.</summary>
+        /// <param name="value">The new value.</param>
+        partial void OnNickNameChanging(string value);
+        /// <summary>Called after NickName has Changed.</summary>
+        partial void OnNickNameChanged();
         #endregion
         
     }
