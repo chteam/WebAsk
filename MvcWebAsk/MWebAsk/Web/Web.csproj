@@ -95,28 +95,42 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Extension\RedirectExtension.cs" />
-    <Compile Include="Models\DB\Account.cs" />
+    <Compile Include="Models\DB\Account.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\DB\Account.Generated.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\DB\Category.cs" />
+    <Compile Include="Models\DB\Category.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\DB\Category.Generated.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\DB\DBDataContext.cs" />
+    <Compile Include="Models\DB\DBDataContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\DB\DBDataContext.Generated.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\DB\MWebAskEntity.cs" />
-    <Compile Include="Models\DB\Publish.cs" />
+    <Compile Include="Models\DB\MWebAskEntity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\DB\Publish.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\DB\Publish.Generated.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\DB\Question.cs" />
+    <Compile Include="Models\DB\Question.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\DB\Question.Generated.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\DB\Reply.cs" />
+    <Compile Include="Models\DB\Reply.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\DB\Reply.Generated.cs">
       <SubType>Code</SubType>
     </Compile>

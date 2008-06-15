@@ -153,28 +153,6 @@ namespace MWebAsk.Models
             }
         }
         
-        private string _type;
-
-        /// <summary>
-        /// Gets or sets the Type column value.
-        /// </summary>
-        [Column(Name="Type", Storage="_type", DbType="nchar(10)")]
-        public string Type
-        {
-            get { return _type; }
-            set
-            {
-                if (_type != value)
-                {
-                    OnTypeChanging(value);
-                    OnPropertyChanging("Type");
-                    _type = value;
-                    OnPropertyChanged("Type");
-                    OnTypeChanged();
-                }
-            }
-        }
-        
         private long _userID;
 
         /// <summary>
@@ -329,11 +307,6 @@ namespace MWebAsk.Models
         partial void OnQuestionIDChanging(long value);
         /// <summary>Called after QuestionID has Changed.</summary>
         partial void OnQuestionIDChanged();
-        /// <summary>Called when Type is changing.</summary>
-        /// <param name="value">The new value.</param>
-        partial void OnTypeChanging(string value);
-        /// <summary>Called after Type has Changed.</summary>
-        partial void OnTypeChanged();
         /// <summary>Called when UserID is changing.</summary>
         /// <param name="value">The new value.</param>
         partial void OnUserIDChanging(long value);
