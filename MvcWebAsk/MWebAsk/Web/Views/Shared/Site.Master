@@ -16,11 +16,12 @@
 		<div class="logo">
 			<img src="/img/logo-zhidao1.gif" border="0" /></div>
 		<div class="headsearch">
-			<% using (Html.Form("Account", "Login", FormMethod.Post, Html.Validation().FormValidation("login"))) { %>
-			<input name="content" type="text" id="content" value=" " size="47" />
+			<% using (Html.Form("Search","Index", FormMethod.Get)) { %>
+			<input name="keyword" type="text" id="keyword" value=" " size="47" />
 			<span><a href="#" target="_blank">帮助</a></span>
-			<input type="submit" name="Submit" value="搜索问题" />
-			<input type="submit" name="Submit" value="搜索答案" />
+			<%=Html.Hidden("mod") %>
+			<input type="submit" name="Submit" value="搜索问题" onclick="$('#mod').val('1')" />
+			<input type="submit" name="Submit" value="搜索答案"  onclick="$('#mod').val('2')"  />
 			<span>
 				<input name="button" type="button" onclick="document.location='<%=Url.Action("Add","Question") %>';"
 					value="我要提问" /></span>
