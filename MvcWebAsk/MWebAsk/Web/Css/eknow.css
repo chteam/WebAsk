@@ -73,3 +73,13 @@ li{margin:2px 0; list-style:none;}
 .userinfo{ margin-top:10px; color:gray; font-size:12px;}
 .gonggao{ text-align:center; border-bottom:1px solid gray; margin:10px;}
 .ggtext{ margin:10px 20px;}
+
+
+.catebox{ border:1px solid #3b5999; margin:10px; font-size:12px; }
+.catebox h5{ background-color:#d8dfea; margin:2px; padding:2px 5px;}
+.catetext{padding:10px;}
+.catetext li{ border-bottom:1px solid #e9e9e9; font-size:12px; padding:2px 5px; text-align:right;}
+
+.catetime{}
+.catestatus{}
+.catetitle{ float:left;}

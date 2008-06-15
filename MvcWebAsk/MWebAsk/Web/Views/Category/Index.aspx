@@ -6,16 +6,16 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentBody" runat="server">
 	<%=Html.RenderUserControl("/views/category/catelist.ascx",ViewData["catelist"]) %>
 	
-	<div>
+	<div class="catetext">
 	<ul>
 	<%
 		foreach (Question q in ViewData["qlist"] as List<Question>) {
 		 %>
 		 
 	<li>
-	<%=Html.ActionLink<QuestionController>(c=>c.Index(q.ID),q.Title) %>
-	<%=q.Addtime.ToString("Mm dd/hh:mm") %> <%=q.UserID %>
-	<%=Enum.GetName(QType.待解决.GetType(),q.Situation) %>
+	<span class="catetitle"><%=Html.ActionLink<QuestionController>(c=>c.Index(q.ID),q.Title) %></span>
+	<span class="catetime"><%=q.Addtime.ToString("Mm dd/hh:mm") %> <%=q.UserID %></span>
+	<span class="catestatus"><%=Enum.GetName(QType.待解决.GetType(),q.Situation) %></span>
 	</li>
 	<%} %>
 	</ul>
