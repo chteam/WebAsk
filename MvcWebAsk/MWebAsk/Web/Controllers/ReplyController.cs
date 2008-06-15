@@ -35,5 +35,14 @@ namespace MWebAsk.Controllers {
 			}
 			this.RedirectToReferrer();
 		}
+		public ActionResult MyReply() {
+			var qs = (from t in DB.Reply
+					  join q in DB.Question on t.QuestionID equals q.ID
+					  where t.UserID == UserTools.UserID
+					  select q
+						  );
+					 
+			return View(qs);
+		}
 	}
 }

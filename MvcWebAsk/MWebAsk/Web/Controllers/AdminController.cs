@@ -110,10 +110,23 @@ namespace MWebAsk.Controllers {
 			this.RedirectToReferrer();
 		}
 		public ActionResult Reply(long id) {
-			return View();
+			var x = (from i in DB.Reply
+					 where i.ID == id
+					 select i).SingleOrDefault();
+			return View(x);
 		}
-		public void DelR(long id) { 
-		
+		public void DelR(long id) {
+			var x = (from i in DB.Reply
+					 where i.ID == id
+					 select i).SingleOrDefault();
+			if (x == null) {
+				TempData["msg"] = "删除失败";
+			} else {
+				DB.Reply.DeleteOnSubmit(x);
+				DB.SubmitChanges();
+				TempData["msg"] = "删除成功";
+			}
+			this.RedirectToReferrer();
 		}
 	}
 }

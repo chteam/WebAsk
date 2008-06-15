@@ -173,6 +173,13 @@
     <Compile Include="Views\Admin\Question.aspx.designer.cs">
       <DependentUpon>Question.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Admin\Reply.aspx.cs">
+      <DependentUpon>Reply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Reply.aspx.designer.cs">
+      <DependentUpon>Reply.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Category\Catelist.ascx.cs">
       <DependentUpon>Catelist.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -250,6 +257,13 @@
     <Compile Include="Views\Question\MyQuestion.aspx.designer.cs">
       <DependentUpon>MyQuestion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Reply\MyReply.aspx.cs">
+      <DependentUpon>MyReply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Reply\MyReply.aspx.designer.cs">
+      <DependentUpon>MyReply.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Shared\AdminMaster.Master.cs">
       <DependentUpon>AdminMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -325,6 +339,7 @@
     <Content Include="Js\jquery.js" />
     <Content Include="Views\Admin\PublishList.aspx" />
     <Content Include="Views\Admin\Question.aspx" />
+    <Content Include="Views\Admin\Reply.aspx" />
     <Content Include="Views\Category\Catelist.ascx" />
     <Content Include="Views\Category\Index.aspx" />
     <Content Include="Views\Publish\Index.aspx" />
@@ -333,6 +348,7 @@
     <Content Include="Views\Question\CateList.ascx" />
     <Content Include="Views\Question\Index.aspx" />
     <Content Include="Views\Question\MyQuestion.aspx" />
+    <Content Include="Views\Reply\MyReply.aspx" />
     <Content Include="Views\Shared\ViewMaster.Master" />
     <Content Include="Views\Admin\CategoryList.aspx" />
     <Content Include="Views\Shared\AdminMaster.Master" />
