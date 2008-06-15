@@ -247,6 +247,28 @@ namespace MWebAsk.Models
                 }
             }
         }
+        
+        private byte _situation;
+
+        /// <summary>
+        /// Gets or sets the Situation column value.
+        /// </summary>
+        [Column(Name="Situation", Storage="_situation", DbType="tinyint NOT NULL", CanBeNull=false)]
+        public byte Situation
+        {
+            get { return _situation; }
+            set
+            {
+                if (_situation != value)
+                {
+                    OnSituationChanging(value);
+                    OnPropertyChanging("Situation");
+                    _situation = value;
+                    OnPropertyChanged("Situation");
+                    OnSituationChanged();
+                }
+            }
+        }
         #endregion
         
         #region Association Mapped Properties
@@ -402,6 +424,11 @@ namespace MWebAsk.Models
         partial void OnPointChanging(int value);
         /// <summary>Called after Point has Changed.</summary>
         partial void OnPointChanged();
+        /// <summary>Called when Situation is changing.</summary>
+        /// <param name="value">The new value.</param>
+        partial void OnSituationChanging(byte value);
+        /// <summary>Called after Situation has Changed.</summary>
+        partial void OnSituationChanged();
         #endregion
         
     }

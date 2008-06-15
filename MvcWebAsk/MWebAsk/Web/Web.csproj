@@ -92,36 +92,30 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Extension\RedirectExtension.cs" />
     <Compile Include="Models\DB\Account.cs" />
     <Compile Include="Models\DB\Account.Generated.cs">
-      <DependentUpon>Account.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\DB\Category.cs" />
     <Compile Include="Models\DB\Category.Generated.cs">
-      <DependentUpon>Category.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\DB\DBDataContext.cs" />
     <Compile Include="Models\DB\DBDataContext.Generated.cs">
-      <DependentUpon>DBDataContext.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\DB\MWebAskEntity.cs" />
     <Compile Include="Models\DB\Publish.cs" />
     <Compile Include="Models\DB\Publish.Generated.cs">
-      <DependentUpon>Publish.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\DB\Question.cs" />
     <Compile Include="Models\DB\Question.Generated.cs">
-      <DependentUpon>Question.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\DB\Reply.cs" />
-    <Compile Include="Extension\RedirectExtension.cs" />
     <Compile Include="Models\DB\Reply.Generated.cs">
-      <DependentUpon>Reply.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -39,5 +39,11 @@ namespace MWebAsk.Controllers {
 			}
 			return Redirect("/");//应该跳到问题页
 		}
+	
+		public ActionResult QuestionList(long cid){
+			Question q = new Question();
+			
+			return View();
+		}
 	}
 }
