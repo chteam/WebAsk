@@ -11,7 +11,9 @@
 					<%
 						foreach (Publish p in ViewData["PublishList"] as List<Publish>) {
 					%>
-					<%=Html.ActionLink<PublishController>(c=>c.Index(p.ID), p.Title)%>
+					
+					
+					<li><%=Html.ActionLink<PublishController>(c=>c.Index(p.ID), p.Title)%></li>
 					
 					<%
 						}
