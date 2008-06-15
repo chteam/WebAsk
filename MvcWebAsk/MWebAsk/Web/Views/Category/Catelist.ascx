@@ -5,7 +5,8 @@
 	
 	%>
 	<li>
-		<%=c.Title %></li>
+	<%=Html.ActionLink<CategoryController>(t => t.Index(c.ID), c.Title) %>
+</li>
 	<%
 		}
 	%>
