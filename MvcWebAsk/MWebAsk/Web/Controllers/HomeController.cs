@@ -13,6 +13,10 @@ namespace MWebAsk.Controllers
             ViewData["Title"] = "首页";
             ViewData["Message"] = "Welcome to ASP.NET MVC!";
 			ViewData["CategoryList"] = (from i in DB.Category select i).ToList();
+			ViewData["PublishList"] = (from i in DB.Publish
+									   orderby i.Addtime
+									   descending
+									   select i).Take(7).ToList();
             return View();
         }
 

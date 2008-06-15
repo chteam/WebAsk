@@ -15,8 +15,10 @@
 <body>
     <div class="leftbox">
     <ul>
+    
     <li><%=Html.ActionLink<AdminController>(c=>c.Index(),"管理首頁")%></li>
     <li><%=Html.ActionLink<AdminController>(c=>c.CategoryList(0,0),"分类管理")%></li>
+    <li><%=Html.ActionLink<AdminController>(c=>c.PublishList(),"公告管理")%></li>
     <li><%=Html.ActionLink<HomeController>(c=>c.Index(),"網站首頁")%></li>
     </ul>
     </div>

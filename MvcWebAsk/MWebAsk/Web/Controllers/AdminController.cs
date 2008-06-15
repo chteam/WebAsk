@@ -69,5 +69,25 @@ namespace MWebAsk.Controllers {
 			return View();
 		}
 		#endregion
+#region 公告
+		public ActionResult PublishList(){
+			
+			return View(DB.Publish.ToList());
+		}
+		public void AddPublish() {
+			Publish p = new Publish();
+			p.Addtime = DateTime.Now;
+			p.UserID = UserTools.UserID;
+			BindingHelperExtensions.UpdateFrom(p, Request.Form);
+			DB.Publish.InsertOnSubmit(p);
+			DB.SubmitChanges();
+			this.RedirectToReferrer();
+		}
+		public void DelPublish(long id) {
+			var x = from i in DB.Publish where i.ID == id select i;
+			DB.Publish.DeleteBatch(x);
+			this.RedirectToReferrer();
+		}
+#endregion
 	}
 }

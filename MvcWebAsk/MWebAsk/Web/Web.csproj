@@ -78,6 +78,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PublishController.cs" />
     <Compile Include="Controllers\QuestionController.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -147,6 +148,20 @@
     </Compile>
     <Compile Include="Views\Account\Regsuccess.aspx.designer.cs">
       <DependentUpon>Regsuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\PublishList.aspx.cs">
+      <DependentUpon>PublishList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\PublishList.aspx.designer.cs">
+      <DependentUpon>PublishList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Publish\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Publish\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Question\Add.aspx.cs">
       <DependentUpon>Add.aspx</DependentUpon>
@@ -268,6 +283,8 @@
     </None>
     <Content Include="Css\admin.css" />
     <Content Include="Js\jquery.js" />
+    <Content Include="Views\Admin\PublishList.aspx" />
+    <Content Include="Views\Publish\Index.aspx" />
     <Content Include="Views\Question\Add.aspx" />
     <Content Include="Views\Admin\Index.aspx" />
     <Content Include="Views\Question\CateList.ascx" />

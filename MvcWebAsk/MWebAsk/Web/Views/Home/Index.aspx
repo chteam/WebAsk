@@ -8,14 +8,14 @@
 				公告区</h5>
 			<div class="boxtext">
 				<ul>
-					<li><a href="../help/help.asp" target="_blank" class="gn" onmousedown="return rc('ghelp')">
-						如何使用易知</a></li>
-					<li><a href="../list/gonggao.asp?id=22" target="_blank">新加DirectX技术专区</a></li>
-					<li><a href="../list/gonggao.asp?id=21" target="_blank">本站源码出售</a></li>
-					<li><a href="../list/gonggao.asp?id=20" target="_blank">信息服务及RSS提供</a></li>
-					<li><a href="../list/gonggao.asp?id=19" target="_blank">关于发表问题的说明</a></li>
-					<li><a href="../list/gonggao.asp?id=18" target="_blank">本站BUG提交</a></li>
-					<li><a href="../list/gonggao.asp?id=14" target="_blank">成幻易知正式公测</a></li>
+					<%
+						foreach (Publish p in ViewData["PublishList"] as List<Publish>) {
+					%>
+					<%=Html.ActionLink<PublishController>(c=>c.Index(p.ID), p.Title)%>
+					
+					<%
+						}
+					%>
 				</ul>
 			</div>
 		</div>
@@ -38,7 +38,8 @@
 				%>
 				<h4>
 					<a href="../list/chsubcls.asp?id=1">
-						<%=ct.Title %></a> </h4>
+						<%=ct.Title %></a>
+				</h4>
 				<%
 					foreach (Category st in clist.Where(c => c.ParentID == ct.ID).OrderBy(c => c.COrder)) {
 				%>
