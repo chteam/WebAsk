@@ -150,6 +150,20 @@
     <Compile Include="Views\Admin\PublishList.aspx.designer.cs">
       <DependentUpon>PublishList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Category\Catelist.ascx.cs">
+      <DependentUpon>Catelist.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Category\Catelist.ascx.designer.cs">
+      <DependentUpon>Catelist.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Category\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Category\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Publish\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -198,13 +212,6 @@
     </Compile>
     <Compile Include="Views\Question\CateList.ascx.designer.cs">
       <DependentUpon>CateList.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Question\QCateList.ascx.cs">
-      <DependentUpon>QCateList.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Question\QCateList.ascx.designer.cs">
-      <DependentUpon>QCateList.ascx</DependentUpon>
     </Compile>
     <Compile Include="Views\Question\QuestionList.aspx.cs">
       <DependentUpon>QuestionList.aspx</DependentUpon>
@@ -292,11 +299,12 @@
     <Content Include="Css\admin.css" />
     <Content Include="Js\jquery.js" />
     <Content Include="Views\Admin\PublishList.aspx" />
+    <Content Include="Views\Category\Catelist.ascx" />
+    <Content Include="Views\Category\Index.aspx" />
     <Content Include="Views\Publish\Index.aspx" />
     <Content Include="Views\Question\Add.aspx" />
     <Content Include="Views\Admin\Index.aspx" />
     <Content Include="Views\Question\CateList.ascx" />
-    <Content Include="Views\Question\QCateList.ascx" />
     <Content Include="Views\Question\QuestionList.aspx" />
     <Content Include="Views\Shared\ViewMaster.Master" />
     <Content Include="Views\Admin\CategoryList.aspx" />

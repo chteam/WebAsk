@@ -37,18 +37,16 @@
 					foreach (Category ct in clist.Where(c => c.ParentID == null).OrderBy(c => c.COrder)) {				
 				%>
 				<h4>
-					<a href="../list/chsubcls.asp?id=1">
-						<%=ct.Title %></a>
+				<%=Html.ActionLink<CategoryController>(t => t.Index(ct.ID), ct.Title) /*1级分类*/%>
 				</h4>
 				<%
 					foreach (Category st in clist.Where(c => c.ParentID == ct.ID).OrderBy(c => c.COrder)) {
 				%>
-				<a href="../list/chsubcls1.asp?id=14">
-					<%=st.Title %></a>
+				<%=Html.ActionLink<CategoryController >(t=>t.Index(st.ID),st.Title) /*2级分类*/%>
 				<%
 					}
 				%>
-				<a href="../list/chsubcls.asp?id=1">...</a>
+				<%=Html.ActionLink<CategoryController>(c => c.Index(ct.ID), "...")/*1级分类，相当于more*/ %>
 				<%
 					}
 				%>
