@@ -30,19 +30,20 @@
 	%>
 	最佳答案
 	<%
-			}
+		}
 		}
 	%>
 	<hr />
 	<%
 		}
-
-	using (Html.Form<ReplyController>(r => r.Add(), FormMethod.Post)) {
+		if (UserTools.IsLogin) {
+			using (Html.Form<ReplyController>(r => r.Add(), FormMethod.Post)) {
 	%>
-	<%=Html.Hidden("QuestionID",q.ID.ToString()) %>
-	<%=Html.TextArea("Body","") %>
-	<%=Html.SubmitButton() %>
+	<%=Html.Hidden("QuestionID", q.ID.ToString())%>
+	<%=Html.TextArea("Body", "")%>
+	<%=Html.SubmitButton()%>
 	<%
+			}
 		}
 	%>
 </asp:Content>
