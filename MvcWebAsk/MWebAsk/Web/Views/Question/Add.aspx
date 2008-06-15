@@ -2,16 +2,11 @@
 	AutoEventWireup="true" CodeBehind="Add.aspx.cs" Inherits="MWebAsk.Views.Add" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+	<link href="/css/newqst.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentBody" runat="server">
 	<div class="listtop">
 		<a href="/home/index">成幻易知</a> &gt; 提问
-	</div>
-	<div class="listright">
-		<div class="box">
-			<h5>
-				相关问题</h5>
-		</div>
 	</div>
 	<div id="cDiv" class="listleft box">
 		<div class="boxtext">
@@ -27,8 +22,8 @@
 					<%=Html.TextBox("Title") %>
 					<%= Html.Validation().RequiredValidator("r41", "Title",	"必填.", "ask")%>
 				</li>
+				<li><label>问题说明：</label></li>
 				<li>
-				内容
 				<%=Html.TextArea("Body","") %>
 				<%= Html.Validation().RequiredValidator("r43", "Body",	"必填.", "ask")%>
 				</li>
@@ -37,10 +32,10 @@
 				<li>
 					<div>
 						
-						<%=Html.DropDownList("firstCategory", new {onchange="ChgCate();" })%>
-						<div id="cate">
+						<label>一级分类：</label><%=Html.DropDownList("firstCategory", new {onchange="ChgCate();" })%>
+						<label>二级分类：</label><span id="cate">
 						<select name="CategoryID" id="CategoryID"></select>
-						</div>
+						</span>
 						<%= Html.Validation().RequiredValidator("r42", "CategoryID",
 						"必选二级分类.", "ask")%>
 					</div>
