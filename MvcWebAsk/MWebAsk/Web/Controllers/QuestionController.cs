@@ -77,7 +77,6 @@ namespace MWebAsk.Controllers {
 		public ActionResult MyQuestion() {
 			var q = DB.Question
 				.Where(t => t.UserID == UserTools.UserID)
-				.OrderByDescending(c => c.Situation)
 				.OrderByDescending(c => c.Addtime).ToList();
 				
 			return View(q);

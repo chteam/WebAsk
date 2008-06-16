@@ -11,14 +11,14 @@ namespace MWebAsk.Controllers {
 
 			List<MWebAsk.Models.Question> ret;
 			if(mod==1)
-			ret= (from q in DB.Question
+			 ret= (from q in DB.Question
 					   where q.Title.Contains(keyword)
 					   select q).ToList();
 			else
-				ret = (from q in DB.Reply
-					   join r in DB.Question on q.QuestionID equals r.ID
-					   where q.Body.Contains(keyword)
-					   select r).ToList();
+				ret = (from r in DB.Reply
+					   join q in DB.Question on r.QuestionID equals q.ID
+					   where r.Body.Contains(keyword)
+					   select q).ToList();
 		
 			// Add action logic here
 			return View(ret);

@@ -10,6 +10,9 @@ namespace MWebAsk.Controllers {
 		public void Index() {
 			// Add action logic here
 		}
+        /// <summary>
+        /// 添加一个回复
+        /// </summary>
 		[NoLoginFilter]
 		public void Add() {
 			Reply r = new Reply();
@@ -23,6 +26,11 @@ namespace MWebAsk.Controllers {
 			DB.SubmitChanges();
 			this.RedirectToReferrer();
 		}
+        /// <summary>
+        /// 设置最佳答案
+        /// </summary>
+        /// <param name="qid"></param>
+        /// <param name="rid"></param>
 		[NoLoginFilter]
 		public void SetBest(long qid, long rid) {
 			var x = DB.Reply.Where(c => c.ID == rid && c.QuestionID == qid).SingleOrDefault();
@@ -37,11 +45,15 @@ namespace MWebAsk.Controllers {
 			}
 			this.RedirectToReferrer();
 		}
+        /// <summary>
+        /// 我的回复
+        /// </summary>
+        /// <returns></returns>
 		[NoLoginFilter]
 		public ActionResult MyReply() {
-			var qs = (from t in DB.Reply
-					  join q in DB.Question on t.QuestionID equals q.ID
-					  where t.UserID == UserTools.UserID
+			var qs = (from r in DB.Reply
+					  join q in DB.Question on r.QuestionID equals q.ID
+					  where r.UserID == UserTools.UserID
 					  select q
 						  ).ToList();
 					 
